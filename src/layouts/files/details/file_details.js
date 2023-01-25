@@ -13,20 +13,21 @@ import FileData from "./file-data";
 import FileProducts from "./file-products";
 import FileContainers from "./file-containers";
 import ModalShow from "./components/modal";
+import AlertApp from "../../../components/AntAlert/alert";
 
-const tabsList = (steps,docs,filesData,items,containers, call) => [
+const tabsList = (steps,docs,filesData,items,containers, call,nextError) => [
     {
         title: "الاكتمال",
         icon: <FileDoneOutlined />,
         count: {value:0,from:0},
         // steps,fileId,currentStep,fileStatus
-        element: <FileSteps steps={steps} fileId={filesData.id} currentStep={filesData.current_step} fileStatus={filesData.status} />,
+        element: <FileSteps nextError={nextError} steps={steps} fileId={filesData.id} currentStep={filesData.current_step} fileStatus={filesData.status} />,
     },
     {
         title: "المستندات الضرورية",
         icon: <FileDoneOutlined />,
         count: {value:0,from:0},
-        element: <FileDocs docs={docs} call={call}/>,
+        element: <FileDocs docs={docs} call={call} />,
     },
     {
         title: "التفاصيل",
@@ -51,6 +52,7 @@ const tabsList = (steps,docs,filesData,items,containers, call) => [
 function FilesDetails() {
 
     const [open, setOpen] = useState({open:false,imgPath:""});
+    const [alert, setAlert] = useState(false);
     // let docId
 
     const [filesData, setFilesData] = useState({
@@ -82,6 +84,9 @@ function FilesDetails() {
     const onChange = (key) => {
         console.log(key);
     };
+    const nextError = (value) => {
+        setAlert(value)
+    };
 
     const openModal = (image)=> {
         // setOpen(true)
@@ -94,10 +99,12 @@ function FilesDetails() {
     return (
         <DashboardLayout>
             <DashboardNavbar />
+            <AlertApp open={alert} setOpen={nextError}/>
             <Tabs
                 onChange={onChange}
                 type="card"
-                items={tabsList(filesData.data.steps,filesData.data.docs,filesData.data,filesData.items,filesData.containers,openModal).map((tab, i) => {
+                items={tabsList(filesData.data.steps,filesData.data.docs,filesData.data,
+                    filesData.items,filesData.containers,openModal,nextError).map((tab, i) => {
                     return {
                         label: tab.title,
                         key: i,

@@ -38,13 +38,13 @@ function ProfilesList({ profiles, shadow, call }) {
     const renderProfiles = profiles.map(({ name, img_path, file_id, id }) => (
     <MDBox key={id} component="li" display="flex" alignItems="center" py={1} mb={1}>
       <MDBox mr={2}>
-        <ArticleIcon fontSize="large" color={docUploaded(id)?"info":"warning"}/>
+        <ArticleIcon fontSize="large" color={docUploaded(id)?"info":"secondary"}/>
       </MDBox>
       <MDBox display="flex" flexDirection="column" alignItems="flex-start" justifyContent="center">
-        <MDTypography variant="button" fontWeight="medium" color={docUploaded(id)?"info":"warning"}>
+        <MDTypography variant="button" fontWeight="medium" color={docUploaded(id)?"info":"secondary"}>
           {name}
         </MDTypography>
-        <MDTypography variant="caption" color={docUploaded(id)?"text":"warning"}>
+        <MDTypography variant="caption" color={docUploaded(id)?"text":"secondary"}>
             {docUploaded(id)?"تم رفع المستند":"المستند مطلوب لاكمال الاجراءات"}
         </MDTypography>
       </MDBox>

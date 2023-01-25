@@ -14,47 +14,27 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import DoneIcon from '@mui/icons-material/Done';
 
-export default function FileSteps({steps,fileId,currentStep,fileStatus}) {
+export default function FileSteps({steps,fileId,currentStep,fileStatus,nextError}) {
     const [activeStep, setActiveStep] = useState(0);
     const [fileClosed, setFileClosed] = useState(+fileStatus === 1);
     const [loading, setLoading] = useState(false);
     useEffect(()=>{
-
-        var BreakException = {};
-
-        try {
-            steps.forEach((val,index)=> {
-                console.log(val.id);
-                console.log(val.done);
-                console.log("index");
-                console.log(index);
-                if (!val.done) throw BreakException;
-                setActiveStep(index)
-            })
-        } catch (e) {
-            if (e !== BreakException) throw e;
-        }
-
-
-
-        // steps.forEach((val,index)=>{
-        //     // console.log("val.done")
-        //     // console.log(val.done)
-        //     // console.log("index")
-        //     // console.log(index)
-        //     if (!val.done){
-        //         console.log("val.id")
-        //         console.log(val.id)
-        //         console.log(val.done)
-        //         console.log("index")
-        //         console.log(index)
-        //         setActiveStep(index)
-        //     }
-        // })
+        steps.forEach((val,index)=> {
+            // console.log("val.id");
+            // console.log(val.id);
+            // console.log("currentStep");
+            // console.log(currentStep);
+            // console.log("index");
+            // console.log(index);
+            if (val.id === currentStep){
+               setActiveStep(index+1)
+            }
+        })
+        setFileClosed(+fileStatus === 1);
     },[currentStep])
     const handleNext = () => {
-        console.log("steps[activeStep].id")
-        console.log(steps[activeStep].id)
+        // console.log("steps[activeStep].id")
+        // console.log(steps[activeStep].id)
         setLoading(true);
         updateCurrentStep(fileId, steps[activeStep].id,()=> {
         setLoading(false);
@@ -62,7 +42,8 @@ export default function FileSteps({steps,fileId,currentStep,fileStatus}) {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         },()=>{
         setLoading(false);
-            errorMessage()
+            // errorMessage()
+            nextError(true);
         })
     };
 
@@ -85,7 +66,6 @@ export default function FileSteps({steps,fileId,currentStep,fileStatus}) {
     };
     return (
         <Box sx={{ maxWidth: 450 }} >
-            {typeof fileStatus}
             <Stepper activeStep={activeStep} orientation="vertical" >
                 {steps.map((step, index) => (
                     <Step key={step.label}>
@@ -97,7 +77,6 @@ export default function FileSteps({steps,fileId,currentStep,fileStatus}) {
                             }
                         >
                             {step.name}
-                            {step.done.toString()}
                         </StepLabel>
                         <StepContent>
                             <Typography color="grey" variant="subtitle2">{step.description}</Typography>
