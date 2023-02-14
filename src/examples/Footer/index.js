@@ -1,57 +1,51 @@
-// prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
-// @mui material config
+import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
-// Material Dashboard 2 React config
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-
-// Material Dashboard 2 React base styles
 import typography from "assets/theme/base/typography";
 
-function Footer({ company }) {
-  const { href, name } = company;
+function Footer({ light }) {
   const { size } = typography;
 
   return (
-    <MDBox
-      width="100%"
-      display="flex"
-      flexDirection={{ xs: "column", lg: "row" }}
-      justifyContent="center"
-      alignItems="center"
-      px={1.5}
-    >
-      <MDBox
-        display="flex"
-        justifyContent="bottom"
-        alignItems="right"
-        flexWrap="wrap"
-        color="text"
-        fontSize={size.sm}
-        px={1.5}
-      >
-        &copy; {new Date().getFullYear()}, developed by
-        <Link href={href} target="_blank">
-          <MDTypography variant="button" fontWeight="medium">
-            &nbsp;{name}&nbsp;
-          </MDTypography>
-        </Link>
-        full stack developer.
+      <MDBox position="absolute" width="90%" bottom={0} py={4}>
+        <Container>
+          <MDBox
+              flexDirection={{ xs: "column", lg: "row" }}
+              alignItems="center"
+          >
+            <MDBox
+                width="100%"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flexWrap="wrap"
+                color={light ? "white" : "text"}
+                fontSize={size.sm}
+            >
+              &copy; {new Date().getFullYear()}, Full Stack Developer
+              <Link href="https://www.creative-tim.com/" target="_blank">
+                <MDTypography variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
+                  &nbsp;Mohtady Behairy&nbsp;
+                </MDTypography>
+              </Link>
+              Developed By
+            </MDBox>
+          </MDBox>
+        </Container>
       </MDBox>
-    </MDBox>
   );
 }
 
-// Setting default values for the props of Footer
+// Setting default props for the Footer
 Footer.defaultProps = {
-  company: { href: "https://www.facebook.com/muhtdyhasan", name: "Mohtady Behairy" },
+  light: false,
 };
 
 // Typechecking props for the Footer
 Footer.propTypes = {
-  company: PropTypes.objectOf(PropTypes.string),
+  light: PropTypes.bool,
 };
 
 export default Footer;

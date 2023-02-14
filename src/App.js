@@ -42,8 +42,8 @@ import {
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
 import "./App.css";
-import FilesDetails from "./layouts/files/details/file_details";
 import AddFilesData from "./layouts/files/add";
+import IndexFileDetails from "./layouts/files/details";
 
 //mohtady mhb ---
 // mohtady final Wednesday
@@ -175,7 +175,7 @@ export default function App() {
           <Routes>
             {getRoutes(routes)}
             <Route path="file_add" element={<AddFilesData />} />
-            <Route path="file_details/:id" element={<FilesDetails />} />
+            <Route path="file_details/:id" element={<IndexFileDetails />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
         </ThemeProvider>

@@ -52,7 +52,7 @@ const tabsList = (steps,docs,filesData,items,containers, call,nextError) => [
 function FilesDetails() {
 
     const [open, setOpen] = useState({open:false,imgPath:""});
-    const [alert, setAlert] = useState(false);
+    const [alert, setAlert] = useState({open:false,value:""});
     // let docId
 
     const [filesData, setFilesData] = useState({
@@ -67,7 +67,9 @@ function FilesDetails() {
     useEffect(() => {
         // eslint-disable-next-line no-use-before-define
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    // eslint-disable-next-line no-unused-vars
     const [loading, setLoading] = useState(false);
     const getData = async () => {
         setLoading(true);
@@ -85,7 +87,9 @@ function FilesDetails() {
         console.log(key);
     };
     const nextError = (value) => {
-        setAlert(value)
+        if (value){
+           setAlert({open: true, value: value})
+        }
     };
 
     const openModal = (image)=> {
@@ -99,7 +103,7 @@ function FilesDetails() {
     return (
         <DashboardLayout>
             <DashboardNavbar />
-            <AlertApp open={alert} setOpen={nextError}/>
+            <AlertApp open={alert} setOpen={setAlert} />
             <Tabs
                 onChange={onChange}
                 type="card"
@@ -113,7 +117,6 @@ function FilesDetails() {
                 })}
             />
             <ModalShow open={open} handleClose={()=> setOpen({open: false,imgPath: ""})}/>
-            <Footer />
         </DashboardLayout>
     );
 }

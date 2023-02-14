@@ -17,6 +17,7 @@ import DoneIcon from '@mui/icons-material/Done';
 export default function FileSteps({steps,fileId,currentStep,fileStatus,nextError}) {
     const [activeStep, setActiveStep] = useState(0);
     const [fileClosed, setFileClosed] = useState(+fileStatus === 1);
+    // eslint-disable-next-line no-unused-vars
     const [loading, setLoading] = useState(false);
     useEffect(()=>{
         steps.forEach((val,index)=> {
@@ -31,6 +32,7 @@ export default function FileSteps({steps,fileId,currentStep,fileStatus,nextError
             }
         })
         setFileClosed(+fileStatus === 1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currentStep])
     const handleNext = () => {
         // console.log("steps[activeStep].id")
@@ -40,10 +42,10 @@ export default function FileSteps({steps,fileId,currentStep,fileStatus,nextError
         setLoading(false);
             succesMessage()
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        },()=>{
+        },(value)=>{
         setLoading(false);
             // errorMessage()
-            nextError(true);
+            nextError(value);
         })
     };
 
@@ -68,7 +70,7 @@ export default function FileSteps({steps,fileId,currentStep,fileStatus,nextError
         <Box sx={{ maxWidth: 450 }} >
             <Stepper activeStep={activeStep} orientation="vertical" >
                 {steps.map((step, index) => (
-                    <Step key={step.label}>
+                    <Step key={+step.id}>
                         <StepLabel
                             optional={
                                 index === 2 ? (

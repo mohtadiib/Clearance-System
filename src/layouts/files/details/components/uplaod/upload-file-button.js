@@ -1,5 +1,5 @@
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, message, Upload } from 'antd';
+import { Button, Upload } from 'antd';
 import {useState} from "react";
 import urlServer from "../../../../../config/const";
 import axios from "axios";
@@ -8,6 +8,7 @@ import getRandomInt from "../../../../../config/randomInt";
 
 const UploadFileButton = ({fileId, docId, call}) => {
 
+    // eslint-disable-next-line no-unused-vars
     const [progress, setProgress] = useState(0);
 
     const uploadImage = async options => {
@@ -58,9 +59,9 @@ const UploadFileButton = ({fileId, docId, call}) => {
 
     }
 
-    return <div style={{marginTop: "20%"}}>
+    return <div>
         <Upload customRequest={uploadImage}>
-            <Button type="primary" style={{backgroundColor:"darkorange"}} icon={<UploadOutlined/>}>رفع الملف</Button>
+            <Button type="primary" style={{backgroundColor:"grey"}} icon={<UploadOutlined/>}>رفع الملف</Button>
         </Upload>
     </div>
 };
