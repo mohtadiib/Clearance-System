@@ -22,7 +22,7 @@ import pxToRem from "assets/theme/functions/pxToRem";
 import rgba from "assets/theme/functions/rgba";
 
 const { size, fontWeightBold, fontWeightRegular } = typography;
-const { info, black, grey } = colors;
+const { black, grey } = colors;
 
 const stepLabel = {
   styleOverrides: {

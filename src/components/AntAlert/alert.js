@@ -34,7 +34,7 @@ export default function AlertApp({open, setOpen}) {
                     }
                     sx={{ mb: 2 }}
                 >
-                    اكمل المستندات الناقصة {open.value}
+                    الرجاء رفع المستندات الناقصة
                 </Alert>
             </Collapse>
         </Box>

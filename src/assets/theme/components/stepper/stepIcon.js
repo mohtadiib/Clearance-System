@@ -2,10 +2,10 @@
 import colors from "assets/theme/base/colors";
 
 // Material Dashboard 2 React helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
-import boxShadow from "assets/theme/functions/boxShadow";
+// import pxToRem from "assets/theme/functions/pxToRem";
+// import boxShadow from "assets/theme/functions/boxShadow";
 
-const { white, black ,grey, info } = colors;
+const { white ,grey, info } = colors;
 
 const stepIcon = {
   styleOverrides: {

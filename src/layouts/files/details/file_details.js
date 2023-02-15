@@ -1,8 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
 import urlServer from "../../../config/const";
 import {useParams} from "react-router-dom";
 import { FileDoneOutlined } from '@ant-design/icons';
@@ -21,7 +18,12 @@ const tabsList = (steps,docs,filesData,items,containers, call,nextError) => [
         icon: <FileDoneOutlined />,
         count: {value:0,from:0},
         // steps,fileId,currentStep,fileStatus
-        element: <FileSteps nextError={nextError} steps={steps} fileId={filesData.id} currentStep={filesData.current_step} fileStatus={filesData.status} />,
+        element: <FileSteps
+            nextError={nextError}
+            steps={steps}
+            fileId={filesData.id}
+            currentStep={filesData.current_step}
+            fileStatus={filesData.status} />,
     },
     {
         title: "المستندات الضرورية",
@@ -49,7 +51,7 @@ const tabsList = (steps,docs,filesData,items,containers, call,nextError) => [
     },
 ]
 // eslint-disable-next-line react/prop-types,no-unused-vars
-function FilesDetails() {
+function FilesDetails({nextError}) {
 
     const [open, setOpen] = useState({open:false,imgPath:""});
     const [alert, setAlert] = useState({open:false,value:""});
@@ -86,11 +88,6 @@ function FilesDetails() {
     const onChange = (key) => {
         console.log(key);
     };
-    const nextError = (value) => {
-        if (value){
-           setAlert({open: true, value: value})
-        }
-    };
 
     const openModal = (image)=> {
         // setOpen(true)
@@ -101,8 +98,7 @@ function FilesDetails() {
     }
 
     return (
-        <DashboardLayout>
-            <DashboardNavbar />
+        <div>
             <AlertApp open={alert} setOpen={setAlert} />
             <Tabs
                 onChange={onChange}
@@ -117,7 +113,7 @@ function FilesDetails() {
                 })}
             />
             <ModalShow open={open} handleClose={()=> setOpen({open: false,imgPath: ""})}/>
-        </DashboardLayout>
+        </div>
     );
 }
 

@@ -26,7 +26,7 @@ export default function ModalShow({open, handleClose}) {
                 <DialogTitle>{""}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        <img src={docsLink+open.imgPath} alt="Italian Trulli" />
+                        <img src={docsLink+open.imgPath} width="90%" alt="Italian Trulli" />
                     </DialogContentText>
                 </DialogContent>
             </Dialog>

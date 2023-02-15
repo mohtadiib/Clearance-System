@@ -1,44 +1,39 @@
+// noinspection BadExpressionStatementJS
+
 import * as React from 'react';
 import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import EmailIcon from '@mui/icons-material/Email';
-import Typography from '@mui/material/Typography';
-import MDBox from "../../../../components/MDBox";
+import MessageItem from "./message-item/message-item";
+import axios from "axios";
+import urlServer from "../../../../config/const";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
 export default function TimelineMessages() {
+    const { id } = useParams()
+    const [found,setFound] = useState({loading:false,data:[]})
+    const [data,setData] = useState([])
+
+    const getMessages = async () => {
+        setFound({loading:true,data:[]})
+        const body = {fileId: id};
+        await axios.post(`${urlServer}customs/file/messages/`, body).then((res) => {
+            console.log("messages data")
+            console.log(res.data)
+            setData(res.data)
+        }).catch(err=>{
+            setFound({loading:false,data:[]})
+            console.log(err);
+        });
+    };
+
+    useEffect(() => {
+        getMessages()
+    }, []);
+
+
     return (
-        <Timeline position="alternate">
-            <TimelineItem>
-                <TimelineOppositeContent
-                    maxWidth="10%"
-                    sx={{ m: 'auto 0' }}
-                    align="right"
-                    variant="body2"
-                    color="text.secondary"
-                >
-                    9:30 am
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                    <TimelineConnector />
-                    <TimelineDot color="primary">
-                        <EmailIcon />
-                    </TimelineDot>
-                    <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent
-                    width="80%"
-                    sx={{ py: '12px', px: 2 }}>
-                    <Typography>
-                        طلب إرسال مستند (اصل)
-                    </Typography>
-                    <Typography variant="h6" component="span">الرجاء إرسال مستند بوليصة الشحن في اسرع وقت</Typography>
-                </TimelineContent>
-            </TimelineItem>
+        <Timeline>
+            {data.map((message)=> <MessageItem message={message.name}/>)}
         </Timeline>
     );
 }

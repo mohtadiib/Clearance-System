@@ -3,7 +3,7 @@ import urlServer from "../../../../config/const";
 
 
 const updateCurrentStep = async (fileId, current_step, call,error) => {
-    const body = {table: "files", fileId: fileId, data: {"current_step": current_step}};
+    const body = {fileId: fileId, data: {"current_step": current_step}};
     console.log(body);
     await axios.post(`${urlServer}customs/file/steps/update_step.php`, body).then((res) => {
                 console.log(res.data);
