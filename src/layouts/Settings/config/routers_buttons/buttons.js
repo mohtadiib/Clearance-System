@@ -1,28 +1,26 @@
 import React from "react";
-import SidenavCollapse from "../../../../examples/Sidenav/SidenavCollapse";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
-// eslint-disable-next-line react/prop-types
-function SettingsButtons({ title, details, call }) {
-  // eslint-disable-next-line react/prop-types
-  const renderRoutes = details.map((item) => (
-    <div style={{ alignSelf: "initial" }}>
-      <SidenavCollapse
-        onClick={() => {
-          call(item);
-        }}
-        style={{ width: 200 }}
-        name={item.name}
-        icon={item.icon}
-        active
-      />
-      <br />
-    </div>
-  ));
-
+function SettingsButtons({ name, call }) {
   return (
     <div>
-      <h3>{title}</h3>
-      {renderRoutes}
+        <div style={{ padding: 5 }}>
+            <Card sx={{ maxWidth: 345 }}>
+                <CardActionArea style={{borderRadius:10}} onClick={call}>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            قم باعداد بيانات {name}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        </div>
     </div>
   );
 }

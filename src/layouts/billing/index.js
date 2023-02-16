@@ -1,7 +1,6 @@
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import * as React from "react";
-import CustomizedTimeline from "../files/details/messages/messages";
 import Footer from "../../examples/Footer";
 
 function Billing() {
@@ -9,7 +8,6 @@ function Billing() {
     <DashboardLayout>
       <DashboardNavbar absolute isMini />
         <div >
-            <CustomizedTimeline />
         </div>
       <Footer />
     </DashboardLayout>

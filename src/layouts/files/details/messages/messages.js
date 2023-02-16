@@ -7,11 +7,11 @@ import axios from "axios";
 import urlServer from "../../../../config/const";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import SearchOffIcon from '@mui/icons-material/SearchOff';
 
 export default function TimelineMessages() {
     const { id } = useParams()
     const [found,setFound] = useState({loading:false,data:[]})
-    const [data,setData] = useState([])
 
     const getMessages = async () => {
         setFound({loading:true,data:[]})
@@ -19,7 +19,7 @@ export default function TimelineMessages() {
         await axios.post(`${urlServer}customs/file/messages/`, body).then((res) => {
             console.log("messages data")
             console.log(res.data)
-            setData(res.data)
+            setFound({loading:false,data:res.data})
         }).catch(err=>{
             setFound({loading:false,data:[]})
             console.log(err);
@@ -32,8 +32,16 @@ export default function TimelineMessages() {
 
 
     return (
+        found.data.length?
         <Timeline>
-            {data.map((message)=> <MessageItem message={message.name}/>)}
+            {found.data.map((message)=> <MessageItem message={message.name}/>)}
         </Timeline>
+            :
+            <div className="center">
+                <SearchOffIcon fontSize="large"/>
+                <div>
+                    لا يوجد تنبيهات
+                </div>
+            </div>
     );
 }
