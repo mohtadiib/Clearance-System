@@ -17,6 +17,8 @@ function EditableCell({
   // eslint-disable-next-line react/prop-types
   title,
   // eslint-disable-next-line react/prop-types
+  optionsLocal,
+  // eslint-disable-next-line react/prop-types
   inputType,
   // eslint-disable-next-line react/prop-types
   record,
@@ -37,6 +39,7 @@ function EditableCell({
       callPressEnter={callPressEnter}
       dataIndex={dataIndex}
       title={title}
+      optionsLocal={optionsLocal}
       editableField={editing}
     />
   );

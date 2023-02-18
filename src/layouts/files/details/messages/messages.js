@@ -1,4 +1,4 @@
-// noinspection BadExpressionStatementJS
+// noinspection BadExpressionStatementJS,JSIgnoredPromiseFromCall
 
 import * as React from 'react';
 import Timeline from '@mui/lab/Timeline';

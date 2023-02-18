@@ -3,6 +3,7 @@ import SelectDocsElement from "../../components/select-docs-element";
 import SelectDataElement from "../../components/select-data-element";
 import SwitchElement from "../../components/switch-element";
 import InputField from "../../components/input-field";
+import SelectLocalElement from "../../components/select-local-data";
 
 // eslint-disable-next-line react/prop-types
 function EditableCellType({
@@ -20,6 +21,8 @@ function EditableCellType({
   dataIndex,
   // eslint-disable-next-line react/prop-types
   title,
+  // eslint-disable-next-line react/prop-types
+  optionsLocal,
 }) {
   let tableField;
   const switchStatus = {
@@ -52,9 +55,15 @@ function EditableCellType({
         <SelectDocsElement form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
       );
       break;
+      //Repeated because select is cached
     case "data":
       tableField = (
         <SelectDataElement form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
+      );
+      break;
+    case "local_select":
+      tableField = (
+        <SelectLocalElement form={form} optionsLocal={optionsLocal} dataIndex={dataIndex} title={title} />
       );
       break;
     default:

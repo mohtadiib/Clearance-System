@@ -13,6 +13,7 @@ function NormalCellType({
   filedType,
   recordValue,
   loading,
+  optionsLocal
 }) {
   let tableField;
   const switchStatus = {
@@ -20,6 +21,9 @@ function NormalCellType({
     status: { itemOn: "متاح", itemOff: "محظور" },
   };
   switch (filedType) {
+    case "local_select":
+      tableField = <BadgeElement normal value={optionsLocal[+recordValue].label} status={switchStatus.badge} />;
+      break;
     case "badge":
       tableField = <BadgeElement value={recordValue} status={switchStatus.badge} />;
       break;

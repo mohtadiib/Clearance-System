@@ -176,6 +176,7 @@ function EditableTable({ tableModel, list, loading }) {
                 recordValue={Object.values(record)[i]}
                 loading={editingKey.loading === record.id}
                 filedType={fieldType}
+                optionsLocal={tableModel.headers[i].selectList ?? []}
               />
             );
           },
@@ -239,6 +240,7 @@ function EditableTable({ tableModel, list, loading }) {
         inputType: "text",
         dataIndex: col.dataIndex,
         title: col.title,
+        optionsLocal: tableModel.headers[index].selectList??[],
         editing: isEditing(record),
         callPressEnter: handlePress,
         // eslint-disable-next-line react/prop-types

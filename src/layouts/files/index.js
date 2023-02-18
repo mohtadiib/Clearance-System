@@ -20,7 +20,7 @@ function FilesShow() {
         // eslint-disable-next-line no-use-before-define
         getData();
     }, []);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const getData = async () => {
         setLoading(true);
         setFilesData([]);

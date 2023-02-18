@@ -28,7 +28,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "التقييمات",
+    name: "العملاء",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
