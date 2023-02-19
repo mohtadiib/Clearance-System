@@ -8,6 +8,7 @@ import SignIn from "layouts/authentication/sign-in";
 import Icon from "@mui/material/Icon";
 import Settings from "layouts/Settings";
 import FilesShow from "./layouts/files";
+import Operations from "./layouts/operations/operations";
 
 const routes = [
   {
@@ -25,6 +26,14 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/tables",
     component: <FilesShow />,
+  },
+  {
+    type: "collapse",
+    name: "العمليات",
+    key: "operations",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/operations",
+    component: <Operations />,
   },
   {
     type: "collapse",

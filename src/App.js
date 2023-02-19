@@ -44,6 +44,8 @@ import brandDark from "assets/images/logo-ct-dark.png";
 import "./App.css";
 import AddFilesData from "./layouts/files/add";
 import IndexFileDetails from "./layouts/files/details";
+import Operations from "./layouts/operations/operations";
+import AddOperation from "./layouts/operations/add/index";
 
 //mohtady mhb ---
 // mohtady final Wednesday
@@ -175,6 +177,8 @@ export default function App() {
           <Routes>
             {getRoutes(routes)}
             <Route path="file_add" element={<AddFilesData />} />
+            <Route path="operations" element={<Operations />} />
+            <Route path="add_operation" element={<AddOperation />} />
             <Route path="file_details/:id" element={<IndexFileDetails />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>

@@ -4,6 +4,7 @@ import SelectDataElement from "../../components/select-data-element";
 import SwitchElement from "../../components/switch-element";
 import InputField from "../../components/input-field";
 import SelectLocalElement from "../../components/select-local-data";
+import DateComponent from "../../components/date-component";
 
 // eslint-disable-next-line react/prop-types
 function EditableCellType({
@@ -64,6 +65,11 @@ function EditableCellType({
     case "local_select":
       tableField = (
         <SelectLocalElement form={form} optionsLocal={optionsLocal} dataIndex={dataIndex} title={title} />
+      );
+      break;
+    case "date":
+      tableField = (
+        <DateComponent dataIndex={dataIndex} />
       );
       break;
     default:

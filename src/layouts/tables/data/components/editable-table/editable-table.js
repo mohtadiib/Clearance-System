@@ -9,9 +9,10 @@ import {
   PlusOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
-import urlServer from "../../../config/const";
-import EditableCell from "./selector/editable-cell/editable-cell";
-import NormalCellType from "./selector/normal-cell";
+import urlServer from "../../../../../config/const";
+import EditableCell from "../../selector/editable-cell/editable-cell";
+import NormalCellType from "../../selector/normal-cell";
+import {useNavigate} from "react-router-dom";
 // import NormalCellType from "./selector/normal-cell";
 
 // eslint-disable-next-line react/prop-types
@@ -21,13 +22,19 @@ function EditableTable({ tableModel, list, loading }) {
   const [add, setAdd] = useState(false);
   const [editingKey, setEditingKey] = useState({ edit: "", loading: "" });
   const isEditing = (record) => record.id === editingKey.edit;
+  const navigate = useNavigate();
+
   const handleAdd = () => {
     setAdd(true);
     tableModel.model.id = data.length + 1;
     // eslint-disable-next-line react/prop-types
     setData([tableModel.model, ...data]);
     // eslint-disable-next-line no-use-before-define,react/prop-types
-    edit(tableModel.model);
+    if (tableModel.addButton){
+      navigate(tableModel.addButton);
+    }else {
+      edit(tableModel.model);
+    }
   };
   const edit = (record) => {
     form.setFieldsValue({
@@ -45,7 +52,7 @@ function EditableTable({ tableModel, list, loading }) {
     setData(newData);
     setEditingKey({ edit: "", loading: "" });
   };
-  const checkRecord = (record) => {
+  const checkAndModifyRecord = (record) => {
     Object.keys(record).forEach((item) => {
       if (typeof record[item] === "object") {
         // eslint-disable-next-line no-param-reassign
@@ -56,7 +63,7 @@ function EditableTable({ tableModel, list, loading }) {
   const saveData = async (newData, call) => {
     setEditingKey({ edit: "", loading: newData.id });
     const record = add ? { ...newData, id: 0 } : { ...newData, id: newData.id };
-    checkRecord(record);
+    checkAndModifyRecord(record);
     const body = {
       // eslint-disable-next-line react/prop-types
       table: tableModel.tableName,

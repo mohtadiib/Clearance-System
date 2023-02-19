@@ -7,7 +7,7 @@ import urlServer from "../../../../config/const";
 let options = [];
 
 // eslint-disable-next-line react/prop-types,no-unused-vars
-function SelectDocsElement({ form, tableName, dataIndex, title }) {
+function SelectDocsElement({ label, form, tableName, dataIndex, title, formed, single }) {
   const handleChange = (value) => {
     // eslint-disable-next-line no-console
     console.log(value);
@@ -42,8 +42,8 @@ function SelectDocsElement({ form, tableName, dataIndex, title }) {
   const SelectItem = (
     <Select
       loading={loading}
-      mode="tags"
-      size="large"
+      mode={single?"":"tags"}
+      size={formed?"":"large"}
       maxTagCount="responsive"
       placeholder="اضغط للاختيار"
       onChange={handleChange}
@@ -54,20 +54,21 @@ function SelectDocsElement({ form, tableName, dataIndex, title }) {
     />
   );
   return (
-    <Form.Item
-      name={dataIndex}
-      style={{
-        margin: 0,
-      }}
-      rules={[
-        {
-          required: true,
-          message: `حقل ${title} ضروري!`,
-        },
-      ]}
-    >
-      {SelectItem}
-    </Form.Item>
+          <Form.Item
+            label={label}
+            name={dataIndex}
+            style={formed?null:{
+              margin: 0,
+            }}
+            rules={[
+              {
+                required: true,
+                message: `حقل ${title} ضروري!`,
+              },
+            ]}
+          >
+            {SelectItem}
+          </Form.Item>
   );
 }
 export default SelectDocsElement;

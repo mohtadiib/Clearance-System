@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ConfigProvider } from "antd";
 import arEG from "antd/locale/ar_EG";
-import EditableTable from "./editable-table";
+import EditableTable from "./components/editable-table/editable-table";
 import urlServer from "../../../config/const";
 // eslint-disable-next-line no-unused-vars
 

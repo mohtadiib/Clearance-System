@@ -30,7 +30,7 @@ const model = {
                     },
                 ]
             },
-            { name: "تاريخ الإنشاء", type: "" },
+            { name: "تاريخ الإنشاء", type: "date" },
             { name: "الحالة", type: "status" },
         ],
         // model: { id: "0", name: "", steps: [], is_active: "" },
@@ -40,8 +40,8 @@ const model = {
             phone:"",
             username:"",
             password:"",
-            type:"",
-            create_at:"",
+            type:[],
+            create_at: "",
             status:"0"},
     }
 
