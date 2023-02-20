@@ -14,6 +14,7 @@ const model = {
     addButton: "/add_operation",
     headers: [
         { name: "الرقم", type: "" },
+        { name: "رقم العملية", type: "" },
         { name: "العميل", type: "" },
         { name: "الإجمالي", type: "" },
         { name: "عدد الملفات", type: "" },
@@ -28,7 +29,8 @@ const model = {
         items_count:"",
         create_at: "",
         update_at: "",
-        status:"0"},
+        status:"0"
+    },
 }
 
 function Operations() {

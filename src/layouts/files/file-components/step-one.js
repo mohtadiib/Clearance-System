@@ -49,28 +49,6 @@ function StepOne({ call }) {
           ))}
         </Select>
       </Form.Item>
-      {/*<Form.Item name="port_id" label="ميناء التفريغ">
-        <Radio.Group>
-          <Radio value="1"> PZU_NU </Radio>
-          <Radio value="2"> PZU_SU </Radio>
-          <Radio value="3"> PZU_DN </Radio>
-        </Radio.Group>
-      </Form.Item>*/}
-      {/*<Form.Item name="clearance_station_id" label="محطة التخليص">
-        <Radio.Group>
-          <Radio value="1"> بورتسودان </Radio>
-          <Radio value="2"> سوبا </Radio>
-          <Radio value="3"> عطبرة </Radio>
-          <Radio value="4"> حلفا </Radio>
-        </Radio.Group>
-      </Form.Item>*/}
-     {/* <Form.Item name="price_of_products_inclusive" label="سعر البضاعة شامل">
-        <Radio.Group>
-          <Radio value="1"> FOB </Radio>
-          <Radio value="2"> CNF </Radio>
-          <Radio value="3"> CIF </Radio>
-        </Radio.Group>
-      </Form.Item>*/}
       <Form.Item name="policy_number" label="رقم البوليصة">
         <Input />
       </Form.Item>

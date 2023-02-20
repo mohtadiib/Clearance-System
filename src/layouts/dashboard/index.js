@@ -14,69 +14,71 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={3}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="dark"
-                icon="weekend"
-                title="Bookings"
-                count={281}
-                percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
-                }}
-              />
+        <div dir="ltr">
+            <MDBox py={3}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={6} lg={3}>
+                        <MDBox mb={1.5}>
+                            <ComplexStatisticsCard
+                                color="dark"
+                                icon="weekend"
+                                title="عدد العملاء"
+                                count={281}
+                                percentage={{
+                                    color: "success",
+                                    amount: "0",
+                                    label: "معدل الزيادة من الأسبوع الفائت",
+                                }}
+                            />
+                        </MDBox>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={3}>
+                        <MDBox mb={1.5}>
+                            <ComplexStatisticsCard
+                                icon="leaderboard"
+                                title="إجمالي الملفات"
+                                count="0"
+                                percentage={{
+                                    color: "success",
+                                    amount: "0",
+                                    label: "معدل الزيادة من الأسبوع الفائت",
+                                }}
+                            />
+                        </MDBox>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={3}>
+                        <MDBox mb={1.5}>
+                            <ComplexStatisticsCard
+                                color="success"
+                                icon="store"
+                                title="إجمالي العهد"
+                                count="0"
+                                percentage={{
+                                    color: "success",
+                                    amount: "0",
+                                    label: "معدل الزيادة من الأسبوع الفائت",
+                                }}
+                            />
+                        </MDBox>
+                    </Grid>
+                    <Grid item xs={12} md={6} lg={3}>
+                        <MDBox mb={1.5}>
+                            <ComplexStatisticsCard
+                                color="primary"
+                                icon="person_add"
+                                title="عدد الملفات"
+                                count="3"
+                                percentage={{
+                                    color: "success",
+                                    amount: "0",
+                                    label: "معدل الزيادة من الأسبوع الفائت",
+                                }}
+                            />
+                        </MDBox>
+                    </Grid>
+                </Grid>
             </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                icon="leaderboard"
-                title="Today's Users"
-                count="2,300"
-                percentage={{
-                  color: "success",
-                  amount: "+3%",
-                  label: "than last month",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="success"
-                icon="store"
-                title="Revenue"
-                count="34k"
-                percentage={{
-                  color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
-                }}
-              />
-            </MDBox>
-          </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
-                color="primary"
-                icon="person_add"
-                title="Followers"
-                count="+91"
-                percentage={{
-                  color: "success",
-                  amount: "",
-                  label: "Just updated",
-                }}
-              />
-            </MDBox>
-          </Grid>
-        </Grid>
-      </MDBox>
+        </div>
       <Footer />
     </DashboardLayout>
   );

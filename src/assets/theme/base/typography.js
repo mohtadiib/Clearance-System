@@ -1,34 +1,10 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/**
- * The base typography styles for the Material Dashboard 2 PRO React.
- * You can add new typography style using this file.
- * You can customized the typography styles for the entire Material Dashboard 2 PRO React using thie file.
- */
-
-// Material Dashboard 2 React Base Styles
 import colors from "assets/theme/base/colors";
-
-// Material Dashboard 2 React Helper Functions
+import './base.css'
 import pxToRem from "assets/theme/functions/pxToRem";
-
 const { dark } = colors;
 
 const baseProperties = {
-  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"shamel", sans-serif',
   fontWeightLighter: 100,
   fontWeightLight: 300,
   fontWeightRegular: 400,
@@ -67,7 +43,7 @@ const typography = {
 
   h1: {
     fontSize: pxToRem(48),
-    lineHeight: 1.25,
+    lineHeight: 1,
     ...baseHeadingProperties,
   },
 
@@ -141,7 +117,7 @@ const typography = {
     fontFamily: baseProperties.fontFamily,
     fontSize: baseProperties.fontSizeXS,
     fontWeight: baseProperties.fontWeightLight,
-    lineHeight: 1.25,
+    lineHeight: 1,
   },
 
   overline: {

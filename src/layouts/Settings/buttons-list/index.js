@@ -7,7 +7,7 @@ import React from "react";
 export default function ButtonsList({ call , index}) {
     return (
         <div>
-            <h3>{settingsRoutes[index].title}</h3>
+            <h5>{settingsRoutes[index].title}</h5>
             <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 5, sm: 4, md: 20 }}>
                 {settingsRoutes[index].details.map((item, index) => (
                     <Grid item xs={2} sm={4} md={4} key={index}>

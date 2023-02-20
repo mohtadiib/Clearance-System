@@ -10,12 +10,10 @@ let options = [];
 function SelectDocsElement({ label, form, tableName, dataIndex, title, formed, single }) {
   const handleChange = (value) => {
     // eslint-disable-next-line no-console
+    console.log("user value");
     console.log(value);
+    form.setFieldValue("user", value);
   };
-  // eslint-disable-next-line react/prop-types
-  const initValue = JSON.parse(`[${form.getFieldValue(dataIndex)}]`);
-  // eslint-disable-next-line react/prop-types
-  form.setFieldValue(dataIndex, initValue);
   const [loading, setLoading] = useState(false);
   const getSelectData = (list) => {
     options = [];

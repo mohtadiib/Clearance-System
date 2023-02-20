@@ -11,7 +11,7 @@ function SettingsButtons({ name, call }) {
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea style={{borderRadius:10}} onClick={call}>
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h6" component="div">
                             {name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">

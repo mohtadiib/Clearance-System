@@ -9,28 +9,33 @@ import MDBox from "../../../components/MDBox";
 import axios from "axios";
 import urlServer from "../../../config/const";
 const { Meta } = Card;
-
-const GetFiles = ({xs, lg,selectable}) => {
+let list = []
+const GetFiles = ({form, xs, lg,selectable}) => {
     const [filesData, setFilesData] = useState([]);
-    const [selected,setSelected] = useState([]);
-
+    // const [selected,setSelected] = useState([]);
+    useEffect(()=>{
+        list = []
+    },[])
     const selectedFile = (id) =>{
         console.log(id)
         if (checkSelected(id)){
-            const list = selected;
+            // list = selected;
             const index = list.indexOf(id);
             if (index > -1) { // only splice array when item is found
                 list.splice(index, 1); // 2nd parameter means remove one item only
             }
-            setSelected([])
-            setSelected(list)
-        }else {
-            setSelected(prevState => [...prevState, id])
-        }
+            // setSelected(list)
+            }else {
+            list.push(id)
+                // setSelected(prevState => [...prevState, id])
+            }
+            form.setFieldValue("items_count", list.length);
+            form.setFieldValue("files", list);
+        // form.setF
     }
 
     const checkSelected = (id) => {
-        return selected.includes(id);
+        return list.includes(id);
     }
 
     useEffect(() => {
@@ -62,17 +67,17 @@ const GetFiles = ({xs, lg,selectable}) => {
     // <Grid item xs={12} lg={6}>
 
     return (
-        <MDBox py={3}>
+        <MDBox py={0}>
             <Grid container spacing={3}>
-                {filesData.map((file)=>
-                    <Grid item xs={xs} lg={lg}>
+                {filesData.map((file,index)=>
+                    <Grid key={file.id} item xs={xs} lg={lg}>
                         <Link to={selectable?'':`/file_details/${file.file_id}`} >
                             <Card
                                 onClick={()=> selectedFile(file.id)}
                                 style={{
                                     opacity:selectable?checkSelected(file.id)?1:.5:1,
                                     width: 300,
-                                    marginTop: 16,
+                                    marginTop: 0,
                                 }}
                                 actions={[
                                     <SettingOutlined key="setting" />,

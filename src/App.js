@@ -39,16 +39,14 @@ import {
 } from "context";
 
 // Images
-import brandWhite from "assets/images/logo-ct.png";
-import brandDark from "assets/images/logo-ct-dark.png";
+// import brandWhite from "assets/images/logo-ct.png";
+import shipping from "assets/images/shipping.png";
 import "./App.css";
 import AddFilesData from "./layouts/files/add";
 import IndexFileDetails from "./layouts/files/details";
 import Operations from "./layouts/operations/operations";
 import AddOperation from "./layouts/operations/add/index";
 
-//mohtady mhb ---
-// mohtady final Wednesday
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
   const {
@@ -163,7 +161,7 @@ export default function App() {
               <>
                 <Sidenav
                     color={sidenavColor}
-                    brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+                    brand={(transparentSidenav && !darkMode) || whiteSidenav ? shipping : shipping}
                     brandName="Clearance System"
                     routes={routes}
                     onMouseEnter={handleOnMouseEnter}
