@@ -3,16 +3,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { Form, Input, InputNumber, Select, Radio, Button } from "antd";
 import { FileContext } from "../add";
 
-const list = [];
-
-function ProductComponent({ call }) {
+function ProductComponent() {
   const formFile = useContext(FileContext);
 
   return (
     <div>
       <Form.Item name="item_id" label="بند السلعة">
         <Select>
-          {formFile.fileList.items.map((item) => (
+          {formFile.fileList.clearance_items.map((item) => (
             <Select.Option key={item.id} value={+item.id}>
               {item.name}
             </Select.Option>

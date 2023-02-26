@@ -32,16 +32,21 @@ export default function TimelineMessages() {
 
 
     return (
-        found.data.length?
-        <Timeline>
-            {found.data.map((message)=> <MessageItem message={message.name}/>)}
-        </Timeline>
-            :
-            <div className="center">
-                <SearchOffIcon fontSize="large"/>
-                <div>
-                    لا يوجد تنبيهات
-                </div>
-            </div>
+        <div className="scrollable-messages">
+          <div style={{direction:"rtl"}}>
+              {
+                  found.data.length?
+                      <Timeline>
+                          {found.data.map((message)=> <MessageItem message={message.name}/>)}
+                      </Timeline>
+                      :
+                      <div className="center">
+                          <SearchOffIcon fontSize="large"/>
+                          <div>
+                              لا يوجد تنبيهات
+                          </div>
+                      </div>}
+          </div>
+        </div>
     );
 }

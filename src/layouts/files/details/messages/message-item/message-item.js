@@ -28,7 +28,7 @@ function MessageItem({message}) {
             <Paper square elevation={0} sx={{ p: 2,m: 1, borderRadius: 2 , width: "100%" }}>
                 <TimelineContent >
                     <div style={{display: "flex"}}>
-                        <Typography>
+                        <Typography variant="h6">
                             طلب إرسال مستند (
                             {message})
                         </Typography>
@@ -39,7 +39,12 @@ function MessageItem({message}) {
                             9:30 am
                         </Box>
                     </div>
-                    <Typography variant="h6" component="span">الرجاء إرسال مستند {message} الشحن في اسرع وقت</Typography>
+                    <Box
+                        style={{fontSize: 15}}
+                        color="text.secondary"
+                    >
+                        الرجاء إرسال مستند {message} الشحن في اسرع وقت
+                    </Box>
                 </TimelineContent>
                 <div style={{textAlign:"left"}}>
                     <LoadingButton

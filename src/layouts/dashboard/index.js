@@ -21,7 +21,7 @@ function Dashboard() {
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
                                 color="dark"
-                                icon="weekend"
+                                icon="group_icon"
                                 title="عدد العملاء"
                                 count={281}
                                 percentage={{
@@ -35,7 +35,7 @@ function Dashboard() {
                     <Grid item xs={12} md={6} lg={3}>
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
-                                icon="leaderboard"
+                                icon="folder_copy_icon"
                                 title="إجمالي الملفات"
                                 count="0"
                                 percentage={{
@@ -50,7 +50,7 @@ function Dashboard() {
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
                                 color="success"
-                                icon="store"
+                                icon="account_balance_walletIcon"
                                 title="إجمالي العهد"
                                 count="0"
                                 percentage={{
@@ -64,8 +64,8 @@ function Dashboard() {
                     <Grid item xs={12} md={6} lg={3}>
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
-                                color="primary"
-                                icon="person_add"
+                                color="dark"
+                                icon="folder_zip_icon"
                                 title="عدد الملفات"
                                 count="3"
                                 percentage={{

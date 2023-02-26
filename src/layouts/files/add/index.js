@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars,no-use-before-define,import/no-cycle,react-hooks/exhaustive-deps */
 import { createContext, useEffect, useState } from "react";
 import { Form } from "antd";
 import axios from "axios";
@@ -15,6 +14,7 @@ const formFile = {
     services: [],
     shipping_lines: [],
     suppliers: [],
+    clearance_items: [],
   },
 };
 

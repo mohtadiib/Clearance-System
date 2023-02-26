@@ -5,11 +5,11 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import typography from "assets/theme/base/typography";
 
-function Footer({ light }) {
+function Footer({ light, width = "90%" }) {
   const { size } = typography;
 
   return (
-      <MDBox position="absolute" width="90%" bottom={0} py={4}>
+      <MDBox position="absolute" width={width} bottom={0} py={4}>
         <Container>
           <MDBox
               flexDirection={{ xs: "column", lg: "row" }}

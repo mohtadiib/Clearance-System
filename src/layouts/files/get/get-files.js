@@ -73,7 +73,7 @@ const GetFiles = ({form, xs, lg,selectable}) => {
                     <Grid key={file.id} item xs={xs} lg={lg}>
                         <Link to={selectable?'':`/file_details/${file.file_id}`} >
                             <Card
-                                onClick={()=> selectedFile(file.id)}
+                                onClick={()=> !selectable?null:selectedFile(file.id)}
                                 style={{
                                     opacity:selectable?checkSelected(file.id)?1:.5:1,
                                     width: 300,

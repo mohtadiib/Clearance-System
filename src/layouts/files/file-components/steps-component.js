@@ -31,12 +31,12 @@ function StepsComponent() {
       console.log(formData);
 
       await axios
-          .post(`${urlServer}constoms/file/insert/`, {
+          .post(`${urlServer}customs/file/insert/`, {
             table: "items",
             data: formData,
           })
           .then((res) => {
-            console.log("done");
+            console.log("send data res ");
             console.log(res.data);
           });
     }

@@ -1,30 +1,31 @@
-import { Table } from 'antd';
-import MDButton from "../../../../components/MDButton";
-import Icon from "@mui/material/Icon";
-const columns = [
-    {
-        title: 'النوع',
-        dataIndex: 'item_name',
-        id: 'name',
+import * as React from "react";
+import EditableTable from "../../../tables/data/components/editable-table/editable-table";
+
+const model = {
+    name: "البضاعة",
+    key: "users",
+    tableName: "file_items",
+    addButton: "",
+    headers: [
+        { name: "النوع", type: "" },
+        { name: "الاسم", type: "data", table: "clearance_items" },
+        { name: "الكمية", type: "" },
+        { name: "الوزن", type: "" },
+        // { name: "بلد المنشأ", type: "" },
+        // { name: "بلد الشحن", type: "" },
+    ],
+    model: {
+        item_details:"",
+        item_id:"",
+        item_quantity: "",
+        item_weight:"",
+        origin_country:"",
+        shipping_country: "",
     },
-    {
-        title: 'الاسم',
-        dataIndex: 'item_details',
-        id: 'age',
-    },
-    {
-        title: 'الكمية',
-        dataIndex: 'item_quantity',
-        id: 'address',
-    },
-];
-const FileProducts = ({items}) => {
-    return <div>
-        <Table columns={columns} dataSource={items} />
-        <MDButton variant="gradient" color="info">
-            <div style={{marginLeft:"5px"}}>اضافة بضاعة</div>
-            <Icon>add</Icon>&nbsp;
-        </MDButton>
-    </div>
-};
-export default FileProducts;
+}
+
+export default function FileProducts({items}) {
+    return (
+        <EditableTable tableModel={model} list={items} />
+    );
+}

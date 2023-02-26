@@ -40,7 +40,7 @@ import {
 
 // Images
 // import brandWhite from "assets/images/logo-ct.png";
-import shipping from "assets/images/shipping.png";
+import shipping from "assets/images/shipping-logo.png";
 import "./App.css";
 import AddFilesData from "./layouts/files/add";
 import IndexFileDetails from "./layouts/files/details";

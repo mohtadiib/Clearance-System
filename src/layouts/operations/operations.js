@@ -4,7 +4,6 @@ import * as React from "react";
 import Footer from "../../examples/Footer";
 import AxiosTable from "../tables/data/axios_table";
 import Icon from "@mui/material/Icon";
-import MDTypography from "../../components/MDTypography";
 
 const model = {
     name: "العمليات",
@@ -36,22 +35,8 @@ const model = {
 function Operations() {
     return (
         <DashboardLayout>
-            <DashboardNavbar absolute isMini />
-            <div style={{marginTop:"5%"}}>
-                <div>
-                    <MDTypography
-                        variant="h4"
-                        color="secondary"
-                        fontWeight="medium"
-                        style={{ display: "inline" }}
-                    >
-                        {model.name}
-                    </MDTypography>
-                </div>
-                <div style={{marginTop:"1%"}}>
-                    <AxiosTable tableModel={model} />
-                </div>
-            </div>
+            <DashboardNavbar />
+            <AxiosTable tableModel={model} />
             <Footer />
         </DashboardLayout>
     );

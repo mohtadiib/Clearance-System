@@ -19,7 +19,7 @@ const FileData = ({fileData}) => {
     ];
 
     return (
-        <Card sx={{ height: "100%", boxShadow: "none" }}>
+        <Card sx={{ height: "100%" }}>
             <Box className="scrollable">
                 <Box style={{direction:"rtl"}}>
                     <List
@@ -29,7 +29,7 @@ const FileData = ({fileData}) => {
                         renderItem={(item) => (
                             <List.Item key={item.title}>
                                 <div style={{width:"50%"}}>
-                                    <Typography.Text title>{item.title}</Typography.Text>
+                                    <Typography.Text>{item.title}</Typography.Text>
                                 </div>
                                 {item.type==="badge"?
                                     <div style={{width:"50%"}}>

@@ -1,21 +1,19 @@
-/* eslint-disable react/prop-types,no-use-before-define,no-param-reassign */
 import React, { useEffect, useState } from "react";
-import { Button, ConfigProvider, Form, Popconfirm, Table, Typography } from "antd";
+import { Form, Popconfirm, Table, Typography } from "antd";
 import {
   CheckOutlined,
   CloseOutlined,
   DeleteFilled,
   EditFilled,
-  PlusOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import urlServer from "../../../../../config/const";
 import EditableCell from "../../selector/editable-cell/editable-cell";
 import NormalCellType from "../../selector/normal-cell";
-import {useNavigate} from "react-router-dom";
-// import NormalCellType from "./selector/normal-cell";
+import { useNavigate} from "react-router-dom";
+import MDButton from "../../../../../components/MDButton";
+import Icon from "@mui/material/Icon";
 
-// eslint-disable-next-line react/prop-types
 function EditableTable({ tableModel, list, loading }) {
   const [form] = Form.useForm();
   const [data, setData] = useState([]);
@@ -259,18 +257,12 @@ function EditableTable({ tableModel, list, loading }) {
   });
   return (
     <Form form={form} component={false}>
-      <ConfigProvider direction="rtl">
-        <Button
-          icon={<PlusOutlined />}
-          onClick={handleAdd}
-          type="primary"
-          style={{
-            marginBottom: 16,
-          }}
-        >
-          إضافة
-        </Button>
-      </ConfigProvider>
+      <div style={{marginBottom:20}}>
+        <MDButton onClick={handleAdd} variant="gradient" color="info">
+          <div style={{marginLeft:"5px"}}>إضافة</div>
+          <Icon>add</Icon>&nbsp;
+        </MDButton>
+      </div>
       <Table
         loading={loading}
         components={{

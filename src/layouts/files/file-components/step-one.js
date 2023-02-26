@@ -11,7 +11,7 @@ function StepOne({ call }) {
 
   return (
     <div>
-      <Form.Item name="suplllier_id" label="المورد">
+      <Form.Item name="supplier_id" label="المورد">
         <Select>
           {formFile.fileList.suppliers.map((item) => (
             <Select.Option key={item.id} value={item.id}>

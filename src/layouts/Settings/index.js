@@ -20,28 +20,6 @@ function Settings() {
     <DashboardLayout>
       <DashboardNavbar />
         <div >
-            {value === "1" ? (
-                <div />
-            ) : (
-                <div>
-                    <MDTypography
-                        variant="h6"
-                        color="secondary"
-                        fontWeight="medium"
-                        style={{ display: "inline" }}
-                    >
-                        {"الاعدادات/ "}
-                    </MDTypography>
-                    <MDTypography
-                        variant="h6"
-                        color="secondary"
-                        fontWeight="medium"
-                        style={{ display: "inline" }}
-                    >
-                        {model.name}
-                    </MDTypography>
-                </div>
-            )}
             <Box sx={{ width: "100%", typography: "body1" }}>
                 {value === "2" ? (
                     <div>

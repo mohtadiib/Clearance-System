@@ -1,78 +1,57 @@
 import { useState } from "react";
-
-// react-router-dom config
-import { Link } from "react-router-dom";
-
-// @mui material config
-import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
-import Grid from "@mui/material/Grid";
-import MuiLink from "@mui/material/Link";
-
-// @mui icons
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import GoogleIcon from "@mui/icons-material/Google";
-
-// Material Dashboard 2 React config
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
-
-// Authentication layout config
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
-// import bgImage from "assets/images/bg-sign-in-basic.jpeg";
+import bgImage from "assets/images/shipping.jpeg";
+import logoImage from "assets/images/shipping-logo.png";
+import {useMaterialUIController} from "../../../context";
 
-function Basic() {
-  const [rememberMe, setRememberMe] = useState(false);
+function Basic({ transparent }) {
+  const [rememberMe, setRememberMe] = useState(true);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  const [controller] = useMaterialUIController();
+  const { darkMode } = controller;
 
   return (
-    <BasicLayout image="">
-      <Card>
-        <MDBox
-          variant="gradient"
-          bgColor="info"
+    <BasicLayout image={bgImage}>
+      <MDBox
           borderRadius="lg"
-          coloredShadow="info"
+          sx={({
+                   palette: { transparent: transparentColor, white, background },
+                   functions: { rgba },
+               }) => ({
+              backgroundColor: transparent
+                  ? transparentColor.main
+                  : rgba(darkMode ? background.sidenav : white.main, 0.9),
+              backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
+          })}
+      >
+        <MDBox
+          borderRadius="lg"
           mx={2}
           mt={-3}
           p={2}
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-            Sign in
+          <MDBox component="img" src={logoImage} alt="Brand" width="8rem" />
+          <MDTypography variant="h6" fontWeight="medium" color="info" mt={1}>
+            تسجيل الدخول
           </MDTypography>
-          <Grid container spacing={3} justifyContent="center" sx={{ mt: 1, mb: 2 }}>
-            <Grid item xs={2}>
-              <MDTypography component={MuiLink} href="#" variant="body1" color="white">
-                <FacebookIcon color="inherit" />
-              </MDTypography>
-            </Grid>
-            <Grid item xs={2}>
-              <MDTypography component={MuiLink} href="#" variant="body1" color="white">
-                <GitHubIcon color="inherit" />
-              </MDTypography>
-            </Grid>
-            <Grid item xs={2}>
-              <MDTypography component={MuiLink} href="#" variant="body1" color="white">
-                <GoogleIcon color="inherit" />
-              </MDTypography>
-            </Grid>
-          </Grid>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" fullWidth />
+              <MDInput type="number" label="رقم الهاتف" fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" fullWidth />
+              <MDInput type="password" label="كلمة المرور" fullWidth />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -83,32 +62,17 @@ function Basic() {
                 onClick={handleSetRememberMe}
                 sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
               >
-                &nbsp;&nbsp;Remember me
+                &nbsp;&nbsp;تذكرني في المرة القادمة
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
               <MDButton variant="gradient" color="info" fullWidth>
-                sign in
+                تسجيل الدخول
               </MDButton>
-            </MDBox>
-            <MDBox mt={3} mb={1} textAlign="center">
-              <MDTypography variant="button" color="text">
-                Don&apos;t have an account?{" "}
-                <MDTypography
-                  component={Link}
-                  to="/authentication/sign-up"
-                  variant="button"
-                  color="info"
-                  fontWeight="medium"
-                  textGradient
-                >
-                  Sign up
-                </MDTypography>
-              </MDTypography>
             </MDBox>
           </MDBox>
         </MDBox>
-      </Card>
+      </MDBox>
     </BasicLayout>
   );
 }

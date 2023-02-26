@@ -6,7 +6,7 @@ export default function FileDocs({docs,call}) {
     return (
         <Box sx={{ maxWidth: 450 }} >
             <ProfilesList
-                shadow={0}
+                shadow
                 profiles={docs}
                 call={call}
             />

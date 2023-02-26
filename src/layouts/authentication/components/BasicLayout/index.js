@@ -1,29 +1,14 @@
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
-// @mui material config
 import Grid from "@mui/material/Grid";
-
-// Material Dashboard 2 React config
 import MDBox from "components/MDBox";
-
-// Material Dashboard 2 React example config
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 import Footer from "../../../../examples/Footer";
 
 function BasicLayout({ image, children }) {
   return (
     <PageLayout>
-      <DefaultNavbar
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/material-dashboard-react",
-          label: "free download",
-          color: "dark",
-        }}
-      />
       <MDBox
         position="absolute"
         width="100%"
@@ -47,7 +32,7 @@ function BasicLayout({ image, children }) {
           </Grid>
         </Grid>
       </MDBox>
-      <Footer light />
+      <Footer light width="100%"/>
     </PageLayout>
   );
 }

@@ -1,28 +1,14 @@
-
 import { useState, useEffect } from "react";
-
-// react-router config
 import { useLocation, Link } from "react-router-dom";
-
-// prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
-
-// @material-ui core config
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React config
 import MDBox from "components/MDBox";
-import MDInput from "components/MDInput";
-
-// Material Dashboard 2 React example config
 import Breadcrumbs from "examples/Breadcrumbs";
 import NotificationItem from "examples/Items/NotificationItem";
-
-// Custom styles for DashboardNavbar
 import {
   navbar,
   navbarContainer,
@@ -30,8 +16,6 @@ import {
   navbarIconButton,
   navbarMobileMenu,
 } from "examples/Navbars/DashboardNavbar/styles";
-
-// Material Dashboard 2 React context
 import {
   useMaterialUIController,
   setTransparentNavbar,
@@ -39,6 +23,7 @@ import {
   setOpenConfigurator,
 } from "context";
 import routes from "../../../routes";
+import SearchField from "../search-field";
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
@@ -49,25 +34,21 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const route =routePath.split("/").slice(1);
   const getTitleAr = ()=> {
     const titleAr = routes.find((routeItem)=> routeItem.route === routePath)
-    return titleAr.name;
+    if (titleAr){
+      return titleAr.name;
+    }else {
+      return "";
+    }
   }
   useEffect(() => {
-    // Setting the navbar type
     if (fixedNavbar) {
       setNavbarType("sticky");
     } else {
       setNavbarType("static");
     }
-
-    // A function that sets the transparent state of the navbar.
     function handleTransparentNavbar() {
       setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
     }
-
-    /**
-         The event listener that's calling the handleTransparentNavbar function when
-         scrolling the window.
-         */
     window.addEventListener("scroll", handleTransparentNavbar);
 
     // Call the handleTransparentNavbar function to set the state with the initial value.
@@ -127,7 +108,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             <MDBox pr={1}>
-              <MDInput label="ابحث عن اي شي" />
+              <SearchField />
             </MDBox>
             <MDBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in/basic">
