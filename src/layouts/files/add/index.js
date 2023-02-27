@@ -5,7 +5,7 @@ import DashboardLayout from "../../../examples/LayoutContainers/DashboardLayout"
 import DashboardNavbar from "../../../examples/Navbars/DashboardNavbar";
 import Footer from "../../../examples/Footer";
 import urlServer from "../../../config/const";
-import StepsComponent from "../file-components/steps-component";
+import StepsComponent from "./file-components/steps-component";
 
 export const FileContext = createContext(null);
 const formFile = {

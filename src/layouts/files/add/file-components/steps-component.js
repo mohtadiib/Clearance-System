@@ -4,8 +4,10 @@ import { Button, message, Steps, theme } from "antd";
 import { FileDoneOutlined, LeftOutlined, RightOutlined } from "@ant-design/icons";
 import axios from "axios";
 import stepsList from "./steps-list";
-import { FileContext } from "../add";
-import urlServer from "../../../config/const";
+import { FileContext } from "../index";
+import urlServer from "../../../../config/const";
+import {useNavigate} from "react-router-dom";
+import {succesMessage} from "../../../../components/Notifications";
 
 const formData = {
   main: {},
@@ -18,6 +20,7 @@ function StepsComponent() {
   const formFile = useContext(FileContext);
   const [current, setCurrent] = useState(0);
   const [shipping, setShipping] = useState(1);
+  const navigate = useNavigate()
 
   const sendData = async () => {
     if (current === 0) {
@@ -38,6 +41,8 @@ function StepsComponent() {
           .then((res) => {
             console.log("send data res ");
             console.log(res.data);
+            succesMessage()
+            navigate("/tables")
           });
     }
   };

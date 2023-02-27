@@ -26,6 +26,8 @@ function EditableCell({
   index,
   // eslint-disable-next-line react/prop-types
   children,
+  // eslint-disable-next-line react/prop-types
+  single,
   ...restProps
 }) {
   // eslint-disable-next-line no-unused-vars
@@ -41,6 +43,7 @@ function EditableCell({
       title={title}
       optionsLocal={optionsLocal}
       editableField={editing}
+      single={single}
     />
   );
 

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle,no-console,no-unused-vars,no-plusplus,no-use-before-define,react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 import { Form, InputNumber, Select, message } from "antd";
-import { FileContext } from "../add";
+import { FileContext } from "../index";
 
 const { Option } = Select;
 

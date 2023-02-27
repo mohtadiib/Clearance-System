@@ -1,7 +1,7 @@
 /* eslint-disable no-console,react/prop-types,import/no-cycle,no-unused-vars,no-plusplus */
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Input, InputNumber, Select, Radio, Button } from "antd";
-import { FileContext } from "../add";
+import { FileContext } from "../index";
 
 function ProductComponent() {
   const formFile = useContext(FileContext);

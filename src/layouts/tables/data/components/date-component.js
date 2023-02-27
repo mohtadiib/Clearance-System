@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "antd";
 import { DatePicker } from 'antd';
 
-function DateComponent({dataIndex}) {
+function DateComponent() {
     const inputNode = <DatePicker disabled/>;
     return (
         <Form.Item

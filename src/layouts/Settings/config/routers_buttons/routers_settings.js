@@ -26,7 +26,7 @@ const settingsRoutes = [
         headers: [
           { name: "الرقم", type: "" },
           { name: "الاسم", type: "" },
-          { name: "المستندات الضرورية", type: "data", table: "documents" },
+          { name: "المستندات الضرورية", type: "data", table: "clearance_docs" },
           { name: "البيانات الضرورية", type: "docs", table: "clearance_data" },
           { name: "الحالة", type: "status" },
         ],
@@ -151,22 +151,38 @@ const settingsRoutes = [
     title: "التبنيد",
     details: [
       {
+        name: "فئات السلع",
+        key: "clearance_categs",
+        icon: <Icon fontSize="small">dashboard</Icon>,
+        tableName: "clearance_categs",
+        headers: [
+          { name: "الرقم", type: "" },
+          { name: "الاسم", type: "" },
+          { name: "الحالة", type: "status" },
+        ],
+        model: {
+          id: "0",
+          name: "",
+          is_active: "0",
+        },
+      },
+      {
         name: "بنود السلعة",
         key: "clearance_items",
         icon: <Icon fontSize="small">dashboard</Icon>,
         tableName: "clearance_items",
         headers: [
           { name: "الرقم", type: "" },
+          { name: "الفئة", type: "data", table: "clearance_categs", single: true },
           { name: "الاسم", type: "" },
-          { name: "تفاصيل", type: "" },
-          { name: "النوع", type: "badge" },
+          { name: "الكود", type: "" },
           { name: "الحالة", type: "status" },
         ],
         model: {
           id: "0",
+          clearance_categ_id: "",
           name: "",
-          details: "",
-          type: "1",
+          code: "",
           is_active: "0",
         },
       },

@@ -7,7 +7,7 @@ import urlServer from "../../../../config/const";
 let options = [];
 
 // eslint-disable-next-line react/prop-types,no-unused-vars
-function SelectDataElement({ form, tableName, dataIndex, title }) {
+function SelectDataElement({ single, form, tableName, dataIndex, title }) {
   const handleChange = (value) => {
     // eslint-disable-next-line no-console
     console.log(value);
@@ -42,7 +42,7 @@ function SelectDataElement({ form, tableName, dataIndex, title }) {
   const SelectItem = (
     <Select
       loading={loading}
-      mode="tags"
+      mode={single?"":"tags"}
       size="large"
       maxTagCount="responsive"
       placeholder="اضغط للاختيار"

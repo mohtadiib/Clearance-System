@@ -13,7 +13,8 @@ function NormalCellType({
   filedType,
   recordValue,
   loading,
-  optionsLocal
+  optionsLocal,
+  single,
 }) {
   let tableField;
   const switchStatus = {
@@ -44,7 +45,9 @@ function NormalCellType({
       break;
     case "data":
       tableField = (
-        <ButtonShow
+        single?
+         <div>{recordValue}</div>:
+         <ButtonShow
           recordKey={recordKey}
           record={record}
           tableName={tableName}

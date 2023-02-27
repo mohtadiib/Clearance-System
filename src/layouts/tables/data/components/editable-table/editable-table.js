@@ -182,6 +182,7 @@ function EditableTable({ tableModel, list, loading }) {
                 loading={editingKey.loading === record.id}
                 filedType={fieldType}
                 optionsLocal={tableModel.headers[i].selectList ?? []}
+                single={tableModel.headers[i].single}
               />
             );
           },
@@ -252,6 +253,7 @@ function EditableTable({ tableModel, list, loading }) {
         fieldType: tableModel.headers[index].type,
         // eslint-disable-next-line react/prop-types
         tableName: tableModel.headers[index].table,
+        single: tableModel.headers[index].single,
       }),
     };
   });

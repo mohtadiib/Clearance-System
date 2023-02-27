@@ -24,6 +24,8 @@ function EditableCellType({
   title,
   // eslint-disable-next-line react/prop-types
   optionsLocal,
+  // eslint-disable-next-line react/prop-types
+  single,
 }) {
   let tableField;
   const switchStatus = {
@@ -59,7 +61,7 @@ function EditableCellType({
       //Repeated because select is cached
     case "data":
       tableField = (
-        <SelectDataElement form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
+        <SelectDataElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
       );
       break;
     case "local_select":
@@ -69,17 +71,19 @@ function EditableCellType({
       break;
     case "date":
       tableField = (
-        <DateComponent dataIndex={dataIndex} />
+        <DateComponent />
       );
       break;
     default:
       tableField = (
-        <InputField
-          inputType={inputType}
-          callPressEnter={callPressEnter}
-          dataIndex={dataIndex}
-          title={title}
-        />
+        <div style={{backgroundColor:"lightyellow"}}>
+          <InputField
+              inputType={inputType}
+              callPressEnter={callPressEnter}
+              dataIndex={dataIndex}
+              title={title}
+          />
+        </div>
       );
   }
 

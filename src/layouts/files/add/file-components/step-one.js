@@ -2,9 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Input, InputNumber, Select, Radio, Button } from "antd";
 import { RightOutlined } from "@ant-design/icons";
-import { FileContext } from "../add";
-
-const list = [];
+import { FileContext } from "../index";
 
 function StepOne({ call }) {
   const formFile = useContext(FileContext);

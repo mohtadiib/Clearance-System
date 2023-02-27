@@ -6,13 +6,14 @@ function InputField({ inputType, callPressEnter, dataIndex, title }) {
     inputType === "number" ? (
       <InputNumber onPressEnter={callPressEnter} />
     ) : (
-      <Input onPressEnter={callPressEnter} />
+      <Input size="large" onPressEnter={callPressEnter} />
     );
   return (
     <Form.Item
       name={dataIndex}
       style={{
         margin: 0,
+          padding:0
       }}
       rules={[
         {

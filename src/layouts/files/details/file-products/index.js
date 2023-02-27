@@ -7,24 +7,26 @@ const model = {
     tableName: "file_items",
     addButton: "",
     headers: [
+        { name: "الرقم", type: "" },
         { name: "النوع", type: "" },
-        { name: "الاسم", type: "data", table: "clearance_items" },
+        { name: "الاسم", type: "data", table: "clearance_items", single:true },
         { name: "الكمية", type: "" },
         { name: "الوزن", type: "" },
         // { name: "بلد المنشأ", type: "" },
         // { name: "بلد الشحن", type: "" },
     ],
     model: {
+        id:"0",
         item_details:"",
         item_id:"",
         item_quantity: "",
         item_weight:"",
-        origin_country:"",
-        shipping_country: "",
+        file_id: "",
     },
 }
 
 export default function FileProducts({items}) {
+    model.model.file_id = items[0].fileId;
     return (
         <EditableTable tableModel={model} list={items} />
     );
