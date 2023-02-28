@@ -24,7 +24,7 @@ function EditableTable({ tableModel, list, loading }) {
 
   const handleAdd = () => {
     setAdd(true);
-    tableModel.model.id = data.length + 1;
+    tableModel.model.id = +data[0].id + 1;
     // eslint-disable-next-line react/prop-types
     setData([tableModel.model, ...data]);
     // eslint-disable-next-line no-use-before-define,react/prop-types
@@ -145,63 +145,65 @@ function EditableTable({ tableModel, list, loading }) {
     return [];
   };
   // eslint-disable-next-line no-plusplus,react/prop-types
-  for (let i = 0; i <= tableModel.headers.length; i++) {
+  for (let i = 0; i < tableModel.headers.length; i++) {
+    if (tableModel.headers[i].hide) {
+      continue;
+    }
     // eslint-disable-next-line react/prop-types
-    if (i !== tableModel.headers.length) {
-      if (i === 0) {
-        columns.push({
-          title: tableModel.headers[i].name,
-          dataIndex: getKeys(data[0])[i],
-          editable: false,
-          width: "1%",
-          render: (_, record) => (
+    if (i === 0) {
+      columns.push({
+        title: tableModel.headers[i].name,
+        dataIndex: getKeys(data[0])[i],
+        editable: false,
+        width: "1%",
+        render: (_, record) => (
             <div style={{ width: 35 }}>
               <NormalCellType
-                filedType=""
-                loading={editingKey.loading === record.id}
-                recordValue={Object.values(record)[i]}
+                  filedType=""
+                  loading={editingKey.loading === record.id}
+                  recordValue={Object.values(record)[i]}
               />
             </div>
-          ),
-        });
-      } else {
-        columns.push({
-          title: tableModel.headers[i].name,
-          dataIndex: getKeys(data[0])[i],
-          width: "18%",
-          editable: true,
-          render: (_, record) => {
-            const fieldType = tableModel.headers[i].type;
-            return (
-              <NormalCellType
-                recordKey={getKeys(record)[i]}
-                record={record}
-                tableName={tableModel.tableName}
-                listTableName={tableModel.headers[i].table}
-                recordValue={Object.values(record)[i]}
-                loading={editingKey.loading === record.id}
-                filedType={fieldType}
-                optionsLocal={tableModel.headers[i].selectList ?? []}
-                single={tableModel.headers[i].single}
-              />
-            );
-          },
-        });
-      }
+        ),
+      });
     } else {
       columns.push({
-        title: "عملية",
-        dataIndex: "operation",
-        width: "10%",
+        title: tableModel.headers[i].name,
+        dataIndex: getKeys(data[0])[i],
+        width: "18%",
+        editable: true,
         render: (_, record) => {
-          const editable = isEditing(record);
-          return editable ? (
-            <span>
+          const fieldType = tableModel.headers[i].type;
+          return (
+              <NormalCellType
+                  recordKey={getKeys(record)[i]}
+                  record={record}
+                  tableName={tableModel.tableName}
+                  listTableName={tableModel.headers[i].table}
+                  recordValue={Object.values(record)[i]}
+                  loading={editingKey.loading === record.id}
+                  filedType={fieldType}
+                  optionsLocal={tableModel.headers[i].selectList ?? []}
+                  single={tableModel.headers[i].single}
+              />
+          );
+        },
+      });
+    }
+  }
+  columns.push({
+    title: "عملية",
+    dataIndex: "operation",
+    width: "10%",
+    render: (_, record) => {
+      const editable = isEditing(record);
+      return editable ? (
+          <span>
               <Typography.Link
-                onClick={() => save(record.id)}
-                style={{
-                  marginLeft: 8,
-                }}
+                  onClick={() => save(record.id)}
+                  style={{
+                    marginLeft: 8,
+                  }}
               >
                 <CheckOutlined />
               </Typography.Link>
@@ -209,28 +211,27 @@ function EditableTable({ tableModel, list, loading }) {
                 <CloseOutlined />
               </Popconfirm>
             </span>
-          ) : (
-            <div style={{ width: 40 }}>
-              <Typography.Link
+      ) : (
+          <div style={{ width: 40 }}>
+            <Typography.Link
                 disabled={editingKey.edit !== ""}
                 onClick={() => edit(record)}
                 style={{
                   marginLeft: 8,
                 }}
-              >
-                <EditFilled />
-              </Typography.Link>
-              {data.length >= 1 ? (
+            >
+              <EditFilled />
+            </Typography.Link>
+            {data.length >= 1 ? (
                 <Popconfirm title="تأكيد الحذف" onConfirm={() => handleDelete(record)}>
                   <DeleteFilled style={{ fontSize: "16px", color: "#ff6767" }} />
                 </Popconfirm>
-              ) : null}
-            </div>
-          );
-        },
-      });
-    }
-  }
+            ) : null}
+          </div>
+      );
+    },
+  });
+
 
   const mergedColumns = columns.map((col, index) => {
     if (!col.editable) {

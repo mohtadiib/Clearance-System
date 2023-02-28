@@ -18,8 +18,9 @@ function AxiosTable({ tableModel }) {
   const getData = async () => {
     setLoading(true);
     setData1([]);
+    const body = tableModel.customFetch?tableModel.customFetch:{ table: tableModel.tableName };
     // eslint-disable-next-line react/prop-types,react/destructuring-assignment
-    await axios.post(urlServer, { table: tableModel.tableName }).then((res) => {
+    await axios.post(urlServer, body).then((res) => {
       setData1(res.data);
       setLoading(false);
     });

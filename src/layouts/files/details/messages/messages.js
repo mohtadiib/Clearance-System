@@ -38,15 +38,8 @@ export default function TimelineMessages() {
                     found.data.length?
                         <div>
                             <Timeline>
-                                {found.data.map((message)=> <MessageItem message={message.name}/>)}
+                                {found.data.map((message)=> <div key={message.id}><MessageItem message={message.name}/></div>)}
                             </Timeline>
-                            <Timeline>
-                                {found.data.map((message)=> <MessageItem message={message.name}/>)}
-                            </Timeline>
-                            <Timeline>
-                                {found.data.map((message)=> <MessageItem message={message.name}/>)}
-                            </Timeline>
-
                         </div>
                         :
                         <div className="center">
@@ -54,7 +47,8 @@ export default function TimelineMessages() {
                             <div>
                                 لا يوجد تنبيهات
                             </div>
-                        </div>}
+                        </div>
+                }
             </div>
         </div>
     );

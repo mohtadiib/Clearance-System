@@ -7,7 +7,7 @@ import { CardActionArea } from '@mui/material';
 function SettingsButtons({ name, call }) {
   return (
     <div>
-        <div style={{ padding: 5 }}>
+        <div>
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea style={{borderRadius:10}} onClick={call}>
                     <CardContent>

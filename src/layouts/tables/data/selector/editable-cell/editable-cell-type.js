@@ -53,13 +53,12 @@ function EditableCellType({
         />
       );
       break;
-    case "docs":
+    case "data":
       tableField = (
-        <SelectDocsElement form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
+       <SelectDocsElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
       );
       break;
-      //Repeated because select is cached
-    case "data":
+    case "docs":
       tableField = (
         <SelectDataElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
       );

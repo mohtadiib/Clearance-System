@@ -7,13 +7,15 @@ import urlServer from "../../../../config/const";
 let options = [];
 
 // eslint-disable-next-line react/prop-types,no-unused-vars
-function SelectDocsElement({ label, form, tableName, dataIndex, title, formed, single }) {
+function SelectDocsElement({ single, form, tableName, dataIndex, title }) {
   const handleChange = (value) => {
     // eslint-disable-next-line no-console
-    console.log("user value");
     console.log(value);
-    form.setFieldValue("user", value);
   };
+  // eslint-disable-next-line react/prop-types
+  const initValue = JSON.parse(`[${form.getFieldValue(dataIndex)}]`);
+  // eslint-disable-next-line react/prop-types
+  form.setFieldValue(dataIndex, initValue);
   const [loading, setLoading] = useState(false);
   const getSelectData = (list) => {
     options = [];
@@ -38,35 +40,34 @@ function SelectDocsElement({ label, form, tableName, dataIndex, title, formed, s
     getData();
   }, []);
   const SelectItem = (
-    <Select
-      loading={loading}
-      mode={single?"":"tags"}
-      size={formed?"":"large"}
-      maxTagCount="responsive"
-      placeholder="اضغط للاختيار"
-      onChange={handleChange}
-      style={{
-        width: "100%",
-      }}
-      options={options}
-    />
+      <Select
+          loading={loading}
+          mode={single?"":"tags"}
+          size="large"
+          maxTagCount="responsive"
+          placeholder="اضغط للاختيار"
+          onChange={handleChange}
+          style={{
+            width: "100%",
+          }}
+          options={options}
+      />
   );
   return (
-          <Form.Item
-            label={label}
-            name={dataIndex}
-            style={formed?null:{
-              margin: 0,
-            }}
-            rules={[
-              {
-                required: true,
-                message: `حقل ${title} ضروري!`,
-              },
-            ]}
-          >
-            {SelectItem}
-          </Form.Item>
+      <Form.Item
+          name={dataIndex}
+          style={{
+            margin: 0,
+          }}
+          rules={[
+            {
+              required: true,
+              message: `حقل ${title} ضروري!`,
+            },
+          ]}
+      >
+        {SelectItem}
+      </Form.Item>
   );
 }
 export default SelectDocsElement;

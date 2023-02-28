@@ -33,7 +33,9 @@ function NormalCellType({
       break;
     case "docs":
       tableField = (
-        <ButtonShow
+          single?
+          <div>{recordValue}</div>:
+          <ButtonShow
           recordKey={recordKey}
           record={record}
           tableName={tableName}

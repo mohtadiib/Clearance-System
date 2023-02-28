@@ -28,10 +28,10 @@ function MessageItem({message}) {
             <Paper square elevation={0} sx={{ p: 2,m: 1, borderRadius: 2 , width: "100%" }}>
                 <TimelineContent >
                     <div style={{display: "flex"}}>
-                        <Typography variant="h6">
+                        <div style={{fontSize:13,fontWeight:"bold"}}>
                             طلب إرسال مستند (
                             {message})
-                        </Typography>
+                        </div>
                         <Box
                             style={{position: "absolute", left: 30, fontSize: 15}}
                             color="text.secondary"
@@ -40,7 +40,7 @@ function MessageItem({message}) {
                         </Box>
                     </div>
                     <Box
-                        style={{fontSize: 15}}
+                        style={{fontSize: 12,padding:5}}
                         color="text.secondary"
                     >
                         الرجاء إرسال مستند {message} الشحن في اسرع وقت
