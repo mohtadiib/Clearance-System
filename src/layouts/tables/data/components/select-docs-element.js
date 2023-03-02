@@ -7,15 +7,18 @@ import urlServer from "../../../../config/const";
 let options = [];
 
 // eslint-disable-next-line react/prop-types,no-unused-vars
-function SelectDocsElement({ single, form, tableName, dataIndex, title }) {
+function SelectDocsElement({ customForFileAdd, restField, single, form, tableName, dataIndex, title }) {
   const handleChange = (value) => {
     // eslint-disable-next-line no-console
     console.log(value);
   };
+
+  if (!customForFileAdd){
   // eslint-disable-next-line react/prop-types
   const initValue = JSON.parse(`[${form.getFieldValue(dataIndex)}]`);
+    form.setFieldValue(dataIndex, initValue);
+  }
   // eslint-disable-next-line react/prop-types
-  form.setFieldValue(dataIndex, initValue);
   const [loading, setLoading] = useState(false);
   const getSelectData = (list) => {
     options = [];
@@ -43,21 +46,26 @@ function SelectDocsElement({ single, form, tableName, dataIndex, title }) {
       <Select
           loading={loading}
           mode={single?"":"tags"}
-          size="large"
+          size={customForFileAdd?"":"large"}
           maxTagCount="responsive"
           placeholder="اضغط للاختيار"
           onChange={handleChange}
           style={{
-            width: "100%",
+            width:customForFileAdd?150:0
           }}
           options={options}
       />
   );
   return (
       <Form.Item
+          {...restField}
           name={dataIndex}
           style={{
             margin: 0,
+            marginRight:customForFileAdd?20:0
+          }}
+          labelCol={{
+            span: customForFileAdd?0:6,
           }}
           rules={[
             {

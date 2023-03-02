@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import StepOne from "./step-one";
 import ContainerDetails from "./containers_details";
-import ProductComponent from "./products-component";
+import ProductStep from "./product_step/products-step";
 
 const stepsList = (call, value) => {
   if (value === 2) {
@@ -16,7 +16,7 @@ const stepsList = (call, value) => {
       },
       {
         title: "معلومات البضاعة",
-        content: <ProductComponent />,
+        content: <ProductStep />,
       },
     ];
   }
@@ -27,7 +27,7 @@ const stepsList = (call, value) => {
     },
     {
       title: "معلومات البضاعة",
-      content: <ProductComponent />,
+      content: <ProductStep />,
     },
   ];
 };

@@ -21,7 +21,7 @@ const formFile = {
 function AddFilesData() {
   [formFile.form] = Form.useForm();
   const [componentSize, setComponentSize] = useState("default");
-  // const [items, setItems] = useState("default");
+  const [items, setItems] = useState("default");
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
@@ -44,7 +44,7 @@ function AddFilesData() {
       <FileContext.Provider value={formFile}>
         <Form
           labelCol={{
-            span: 4,
+            span: 2,
           }}
           wrapperCol={{
             span: 14,

@@ -12,7 +12,7 @@ import {succesMessage} from "../../../../components/Notifications";
 const formData = {
   main: {},
   containers: "",
-  products: {},
+  products: ""
 };
 
 function StepsComponent() {
@@ -20,6 +20,7 @@ function StepsComponent() {
   const formFile = useContext(FileContext);
   const [current, setCurrent] = useState(0);
   const [shipping, setShipping] = useState(1);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
 
   const sendData = async () => {
@@ -28,17 +29,18 @@ function StepsComponent() {
     } else if (current === 1) {
       formData.containers = JSON.stringify(formFile.form.getFieldValue("containers"));
     } else if (current === 2) {
-      formData.products = formFile.form.getFieldsValue();
+      formData.products = JSON.stringify(formFile.form.getFieldValue("products"));
+      // formData.products = formFile.form.getFieldValue("products");
 
       console.log("formData");
       console.log(formData);
-
+      setLoading(true)
       await axios
           .post(`${urlServer}customs/file/insert/`, {
-            table: "items",
             data: formData,
           })
           .then((res) => {
+            setLoading(false)
             console.log("send data res ");
             console.log(res.data);
             succesMessage()
@@ -62,6 +64,7 @@ function StepsComponent() {
     borderRadius: token.borderRadiusLG,
     border: `1px dashed ${token.colorBorder}`,
     marginTop: 16,
+    padding:20
   };
 
   const call = () => {
@@ -83,6 +86,7 @@ function StepsComponent() {
             }}
             type="primary"
             onClick={() => next()}
+            loading={loading}
           >
             <div style={{ marginRight: "30%", display: "inline" }}>التالي</div>
             <LeftOutlined style={{ marginRight: "30%", display: "inline" }} />

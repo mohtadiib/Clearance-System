@@ -89,31 +89,37 @@ function ContainerDetails() {
       </Form.Item>
       <Form.List name="containers">
         {(containers) => (
-          <>
-            {consDetails.map(({ key, ...restField }) => (
-              <div key={key}>
-                <Form.Item
-                  name={[key, "container_no"]}
-                  label="رقم وحجم الحاوية"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input donation amount!",
-                    },
-                  ]}
-                >
-                  <InputNumber
-                    addonAfter={suffixSelector([key, "container_size"])}
-                    style={{
-                      width: "50%",
-                    }}
-                  />
-                </Form.Item>
-              </div>
-            ))}
-          </>
+            <>
+              {consDetails.map(({ key, ...restField }) => (
+                  <div key={key}>
+                    <Form.Item
+                        name={[key, "container_no"]}
+                        label="رقم وحجم الحاوية"
+                        labelCol={{
+                          span: 0,
+                        }}
+                        wrapperCol={{
+                          span: 24,
+                        }}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please input donation amount!",
+                          },
+                        ]}
+                    >
+                      <InputNumber
+                          addonAfter={suffixSelector([key, "container_size"])}
+                          style={{
+                            width: "50%",
+                          }}
+                      />
+                    </Form.Item>
+                  </div>
+              ))}
+            </>
         )}
-      </Form.List>
+       </Form.List>
     </div>
   );
 }
