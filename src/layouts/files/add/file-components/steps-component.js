@@ -11,6 +11,7 @@ import {succesMessage} from "../../../../components/Notifications";
 
 const formData = {
   main: {},
+  ness_data: "",
   containers: "",
   products: ""
 };
@@ -23,31 +24,44 @@ function StepsComponent() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
 
-  const sendData = async () => {
+  const sendData = () => {
+    const shippingType = formFile.form.getFieldValue("shipping_type")
+    console.log("shippingType")
+    console.log(shippingType)
+
     if (current === 0) {
       formData.main = formFile.form.getFieldsValue();
     } else if (current === 1) {
-      formData.containers = JSON.stringify(formFile.form.getFieldValue("containers"));
-    } else if (current === 2) {
-      formData.products = JSON.stringify(formFile.form.getFieldValue("products"));
-      // formData.products = formFile.form.getFieldValue("products");
+      formData.ness_data = JSON.stringify(formFile.form.getFieldValue("ness_data"));
+    }else if (current === 2) {
 
-      console.log("formData");
-      console.log(formData);
-      setLoading(true)
-      await axios
-          .post(`${urlServer}customs/file/insert/`, {
-            data: formData,
-          })
-          .then((res) => {
-            setLoading(false)
-            console.log("send data res ");
-            console.log(res.data);
-            succesMessage()
-            navigate("/tables")
-          });
+      if (+shippingType !== 2){
+        formData.products = JSON.stringify(formFile.form.getFieldValue("products"));
+        sendToDb()
+      }else {
+        formData.containers = JSON.stringify(formFile.form.getFieldValue("containers"));
+      }
+
+    } else if (current === 3) {
+      formData.products = JSON.stringify(formFile.form.getFieldValue("products"));
+      sendToDb()
     }
   };
+
+  async function sendToDb(){
+    setLoading(true)
+    await axios
+        .post(`${urlServer}customs/file/insert/`, {
+          data: formData,
+        })
+        .then((res) => {
+          setLoading(false)
+          console.log("send data res ");
+          console.log(res.data);
+          succesMessage()
+          navigate("/tables")
+        });
+  }
 
   const next = () => {
     setCurrent(current + 1);
@@ -93,16 +107,31 @@ function StepsComponent() {
           </Button>
         )}
         {current === stepsList(call, shipping).length - 1 && (
-          <Button
-            style={{
-              width: "12%",
-            }}
-            type="primary"
-            onClick={sendData}
-          >
-            <div style={{ marginRight: "30%", display: "inline" }}>حفظ</div>
-            <FileDoneOutlined style={{ marginRight: "30%", display: "inline" }} />
-          </Button>
+            <Button
+                style={{
+                  width: "12%",
+                  direction:"ltr"
+                }}
+                type="primary"
+                icon={<FileDoneOutlined />}
+                loading={loading}
+                onClick={sendData}
+            >
+              حفظ البيانات
+            </Button>
+
+            /*<Button
+              style={{
+                width: "12%",
+                direction:"ltr"
+              }}
+              type="primary"
+              loading
+              onClick={sendData}
+            >
+              <div style={{ marginRight: "30%", display: "inline" }}>حفظ</div>
+              {/!*<FileDoneOutlined style={{ marginRight: "30%", display: "inline" }} />*!/}
+            </Button>*/
         )}
         {current > 0 && (
           <Button

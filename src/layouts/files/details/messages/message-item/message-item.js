@@ -5,7 +5,6 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import EmailIcon from "@mui/icons-material/Email";
 import SendIcon from '@mui/icons-material/Send';
 import TimelineContent from "@mui/lab/TimelineContent";
-import Typography from "@mui/material/Typography";
 import {LoadingButton, TimelineItem} from "@mui/lab";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";

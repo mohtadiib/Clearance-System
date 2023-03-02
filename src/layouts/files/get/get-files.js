@@ -70,50 +70,54 @@ const GetFiles = ({form, xs, lg,selectable}) => {
         <MDBox py={0}>
             {
                 filesData.length?
-                <Grid container spacing={3}>
-                    {filesData.map((file,index)=>
-                        <Grid key={file.id} item xs={xs} lg={lg}>
-                            <Link to={selectable?'':`/file_details/${file.file_id}`} >
-                                <Card
-                                    onClick={()=> !selectable?null:selectedFile(file.id)}
-                                    style={{
-                                        opacity:selectable?checkSelected(file.id)?1:.5:1,
-                                        width: 300,
-                                        marginTop: 0,
-                                    }}
-                                    actions={[
-                                        <SettingOutlined key="setting" />,
-                                        <EditOutlined key="edit" />,
-                                        <div>
-                                            ختام التفاصيل
-                                        </div>,
-                                    ]}
-                                >
-                                    <Skeleton loading={loading} avatar active>
-                                        <Meta
-                                            avatar={
-                                                checkSelected(file.id)?
-                                                    <CheckCircleIcon fontSize="large" color="success"/>:
-                                                    <FolderSpecialIcon fontSize="large" color="secondary"/>
-                                            }
-                                            title={shippingType(file.shipping_type)}
-                                            description={
-                                                <div>
-                                                    <div>
-                                                        ختام التفاصيل
-                                                    </div>
-                                                    <div>
-                                                        3000 SDG
-                                                    </div>
-                                                </div>
-                                            }
-                                        />
-                                    </Skeleton>
-                                </Card>
-                            </Link>
-                        </Grid>
-                    )}
-                </Grid>:
+               <div className="scrollable-files">
+                   <div style={{direction:"rtl"}}>
+                       <Grid container spacing={3} style={{marginRight: 0}}>
+                           {filesData.map((file,index)=>
+                               <Grid key={file.id} item xs={xs} lg={lg}>
+                                   <Link to={selectable?'':`/file_details/${file.file_id}`} >
+                                       <Card
+                                           onClick={()=> !selectable?null:selectedFile(file.id)}
+                                           style={{
+                                               opacity:selectable?checkSelected(file.id)?1:.5:1,
+                                               width: 300,
+                                               marginTop: 0,
+                                           }}
+                                           actions={[
+                                               <SettingOutlined key="setting" />,
+                                               <EditOutlined key="edit" />,
+                                               <div>
+                                                   ختام التفاصيل
+                                               </div>,
+                                           ]}
+                                       >
+                                           <Skeleton loading={loading} avatar active>
+                                               <Meta
+                                                   avatar={
+                                                       checkSelected(file.id)?
+                                                           <CheckCircleIcon fontSize="large" color="success"/>:
+                                                           <FolderSpecialIcon fontSize="large" color="secondary"/>
+                                                   }
+                                                   title={shippingType(file.shipping_type)}
+                                                   description={
+                                                       <div>
+                                                           <div>
+                                                               ختام التفاصيل
+                                                           </div>
+                                                           <div>
+                                                               3000 SDG
+                                                           </div>
+                                                       </div>
+                                                   }
+                                               />
+                                           </Skeleton>
+                                       </Card>
+                                   </Link>
+                               </Grid>
+                           )}
+                       </Grid>
+                   </div>
+               </div>:
                 <div className="app-center">لا توجد ملفات</div>
             }
         </MDBox>

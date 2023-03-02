@@ -2,6 +2,7 @@
 import StepOne from "./step-one";
 import ContainerDetails from "./containers_details";
 import ProductStep from "./product_step/products-step";
+import FileDataStep from "./file_data/data_step";
 
 const stepsList = (call, value) => {
   if (value === 2) {
@@ -9,6 +10,10 @@ const stepsList = (call, value) => {
       {
         title: "معلومات الملف",
         content: <StepOne call={call} />,
+      },
+      {
+        title: "البيانات الضرورية",
+        content: <FileDataStep />,
       },
       {
         title: "تفاصيل الحاويات",
@@ -24,6 +29,10 @@ const stepsList = (call, value) => {
     {
       title: "معلومات الملف",
       content: <StepOne call={call} />,
+    },
+    {
+      title: "البيانات الضرورية",
+      content: <FileDataStep />,
     },
     {
       title: "معلومات البضاعة",

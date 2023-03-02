@@ -38,7 +38,9 @@ function StepOne({ call }) {
       <Form.Item name="quantity" label="الكمية">
         <InputNumber />
       </Form.Item>
-      <Form.Item name="service_id" label="الخدمة">
+      <Form.Item name="service_id" label="الخدمة" role={[
+          {require: true}
+      ]}>
         <Select>
           {formFile.fileList.services.map((item) => (
             <Select.Option key={item.id} value={item.id}>

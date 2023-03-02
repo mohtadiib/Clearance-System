@@ -24,7 +24,7 @@ const model = {
     },
 }
 
-export default function FileContainers({containers}) {
+export default function FileContainers({fileId}) {
 
     const [data, setData1] = useState([]);
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function FileContainers({containers}) {
         setLoading(true);
         setData1([]);
 
-        model.customFetch.id = containers[0].file_id;
+        model.customFetch.id = fileId;
         // eslint-disable-next-line react/prop-types,react/destructuring-assignment
         await axios.post(urlServer, model.customFetch).then((res) => {
             setData1(res.data);
@@ -44,7 +44,7 @@ export default function FileContainers({containers}) {
         });
     };
 
-    model.foreignKey = containers[0].file_id;
+    model.foreignKey = fileId;
     return (
         <EditableTableFile tableModel={model} list={data} loading={loading}/>
     );

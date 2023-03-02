@@ -51,7 +51,7 @@ function SelectDocsElement({ customForFileAdd, restField, single, form, tableNam
           placeholder="اضغط للاختيار"
           onChange={handleChange}
           style={{
-            width:customForFileAdd?150:0
+            width:customForFileAdd?150:"100%"
           }}
           options={options}
       />
@@ -59,6 +59,7 @@ function SelectDocsElement({ customForFileAdd, restField, single, form, tableNam
   return (
       <Form.Item
           {...restField}
+          label={customForFileAdd?title:""}
           name={dataIndex}
           style={{
             margin: 0,

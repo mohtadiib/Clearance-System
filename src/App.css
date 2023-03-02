@@ -54,6 +54,18 @@
     max-height: 600px;
     overflow: auto;
 }
+.scrollable-file-data{
+    direction: ltr;
+    height: 400px;
+    overflow: auto;
+}
+
+.scrollable-files{
+    direction: ltr;
+    height: 600px;
+    overflow: auto;
+}
+
 
 /* width */
 ::-webkit-scrollbar {

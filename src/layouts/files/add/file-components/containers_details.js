@@ -99,7 +99,7 @@ function ContainerDetails() {
                           span: 0,
                         }}
                         wrapperCol={{
-                          span: 24,
+                          span: 14,
                         }}
                         rules={[
                           {

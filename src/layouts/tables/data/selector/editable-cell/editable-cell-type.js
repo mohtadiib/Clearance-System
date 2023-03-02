@@ -55,12 +55,12 @@ function EditableCellType({
       break;
     case "data":
       tableField = (
-       <SelectDocsElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
+       <SelectDataElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
       );
       break;
     case "docs":
       tableField = (
-        <SelectDataElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
+        <SelectDocsElement single={single} form={form} tableName={tableName} dataIndex={dataIndex} title={title} />
       );
       break;
     case "local_select":

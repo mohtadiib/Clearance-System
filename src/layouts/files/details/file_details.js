@@ -12,7 +12,7 @@ import FileContainers from "./file-containers";
 import ModalShow from "./components/modal";
 import AlertApp from "../../../components/AntAlert/alert";
 
-const tabsList = (steps,docs,filesData,items,containers, call,nextError) => [
+const tabsList = (fileId,steps,docs,filesData, call,nextError) => [
     {
         title: "الاكتمال",
         icon: <FileDoneOutlined />,
@@ -41,13 +41,13 @@ const tabsList = (steps,docs,filesData,items,containers, call,nextError) => [
         title: "البضاعة",
         icon: <FileDoneOutlined />,
         count: {value:0,from:0},
-        element: <FileProducts items={items}/>,
+        element: <FileProducts fileId={fileId}/>,
     },
     {
         title: "الحاويات",
         icon: <FileDoneOutlined />,
         count: {value:0,from:0},
-        element: <FileContainers containers={containers}/>,
+        element: <FileContainers fileId={fileId}/>,
     },
 ]
 // eslint-disable-next-line react/prop-types,no-unused-vars
@@ -97,16 +97,32 @@ function FilesDetails({nextError}) {
         setOpen({open: true, imgPath:image})
     }
 
+    const getLevel = (i) => {
+        if (i === 0){
+           return filesData.data.steps.length
+        }else if (i === 1){
+            return filesData.data.docs.length
+        }else if (i === 2){
+            return ""
+        }else if (i === 3){
+            return filesData.items.length
+        }else if (i === 4){
+            return filesData.containers.length
+        }
+        return 0
+    }
+
+
     return (
         <div>
             <AlertApp open={alert} setOpen={setAlert} />
             <Tabs
                 onChange={onChange}
                 type="card"
-                items={tabsList(filesData.data.steps,filesData.data.docs,filesData.data,
-                    filesData.items,filesData.containers,openModal,nextError).map((tab, i) => {
+                items={tabsList(filesData.data.file_id,filesData.data.steps,filesData.data.docs,filesData.data,
+                    openModal,nextError).map((tab, i) => {
                     return {
-                        label: tab.title,
+                        label: tab.title+" "+getLevel(i),
                         key: i,
                         children: tab.element,
                     };
@@ -116,5 +132,6 @@ function FilesDetails({nextError}) {
         </div>
     );
 }
+
 
 export default FilesDetails;
