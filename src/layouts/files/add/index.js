@@ -21,7 +21,7 @@ const formFile = {
 function AddFilesData() {
   [formFile.form] = Form.useForm();
   const [componentSize, setComponentSize] = useState("default");
-  const [items, setItems] = useState("default");
+  // const [items, setItems] = useState("default");
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
