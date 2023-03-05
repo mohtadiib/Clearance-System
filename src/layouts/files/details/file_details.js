@@ -99,9 +99,9 @@ function FilesDetails({nextError}) {
 
     const getLevel = (i) => {
         if (i === 0){
-           return filesData.data.steps.length
+           return checkListLengthDone(filesData.data.steps)
         }else if (i === 1){
-            return filesData.data.docs.length
+            return  checkListLengthDone(filesData.data.docs)
         }else if (i === 2){
             return ""
         }else if (i === 3){
@@ -110,6 +110,17 @@ function FilesDetails({nextError}) {
             return filesData.containers.length
         }
         return 0
+    }
+    const checkListLengthDone = (list) => {
+        let doneItem = {done:1,wait:1}
+        list.forEach((value)=> {
+            if (value.uploaded){
+                doneItem.done++
+            }else {
+                doneItem.wait++
+            }
+        })
+        return `${doneItem.wait}/${doneItem.done}`
     }
 
 
