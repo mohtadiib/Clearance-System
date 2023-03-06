@@ -9,9 +9,26 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import urlServer from "../../config/const";
 
 function Dashboard() {
-  return (
+    const [items, setItems] = useState({files:0,users:0});
+    const [loading, setLoading] = useState(false);
+    const tablesList = ["files", "users"];
+    useEffect(() => {
+        getData();
+    }, []);
+    const getData = async () => {
+        setLoading(true);
+        await axios.post(`${urlServer}mult_table/get_length/`, JSON.stringify(tablesList)).then((res) => {
+            setItems(res.data);
+            setLoading(false);
+        });
+    };
+
+    return (
     <DashboardLayout>
       <DashboardNavbar />
         <div dir="ltr">
@@ -23,7 +40,7 @@ function Dashboard() {
                                 color="dark"
                                 icon="group_icon"
                                 title="عدد العملاء"
-                                count={281}
+                                count={items.users}
                                 percentage={{
                                     color: "success",
                                     amount: "0",
@@ -67,7 +84,7 @@ function Dashboard() {
                                 color="dark"
                                 icon="folder_zip_icon"
                                 title="عدد الملفات"
-                                count="3"
+                                count={items.files}
                                 percentage={{
                                     color: "success",
                                     amount: "0",

@@ -1,7 +1,6 @@
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Billing from "layouts/billing";
-import AddFilesData from "layouts/files/add";
 import SignIn from "layouts/authentication/sign-in";
 
 // @mui icons
@@ -22,9 +21,10 @@ const routes = [
   {
     type: "collapse",
     name: "الملفات",
-    key: "tables",
+    subRoute:["file_details/"],
+    key: "files",
     icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
+    route: "/files",
     component: <FilesShow />,
   },
   {
@@ -43,14 +43,14 @@ const routes = [
     route: "/billing",
     component: <Billing />,
   },
-  {
-    type: "collapse",
-    name: "التقارير",
-    key: "files",
-    icon: <Icon fontSize="small">notifications</Icon>,
-    route: "/files",
-    component: <AddFilesData />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "التقارير",
+  //   key: "files",
+  //   icon: <Icon fontSize="small">notifications</Icon>,
+  //   route: "/files",
+  //   component: <AddFilesData />,
+  // },
   {
     type: "collapse",
     name: "الإعدادات",

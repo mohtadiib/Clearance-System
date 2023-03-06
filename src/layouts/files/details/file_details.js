@@ -112,15 +112,13 @@ function FilesDetails({nextError}) {
         return 0
     }
     const checkListLengthDone = (list) => {
-        let doneItem = {done:1,wait:1}
+        let doneItem = 0
         list.forEach((value)=> {
-            if (value.uploaded){
-                doneItem.done++
-            }else {
-                doneItem.wait++
+            if (value.uploaded || value.done){
+                doneItem++
             }
         })
-        return `${doneItem.wait}/${doneItem.done}`
+        return `${doneItem}/${list.length}`
     }
 
 

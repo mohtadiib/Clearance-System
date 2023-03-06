@@ -6,13 +6,13 @@
 }
 
 .center{
-    width: 40%;
+    width: 25%;
     height: 60%;
     border-radius: 10px;
     border: 1px dashed #cad7e3;
     position: absolute;
     top: 50%;
-    left: 25%;
+    left: 17%;
     padding-top: 12%;
     transform: translate(-50%, -50%);
     text-align: center;

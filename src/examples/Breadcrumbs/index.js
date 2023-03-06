@@ -45,7 +45,7 @@ function Breadcrumbs({ icon, title, route, light }) {
               opacity={light ? 0.8 : 0.5}
               sx={{ lineHeight: 0 }}
             >
-              {el}
+              {breadCrumbsTitle(el)}
             </MDTypography>
           </Link>
         ))}
@@ -70,6 +70,10 @@ function Breadcrumbs({ icon, title, route, light }) {
       </MDTypography>
     </MDBox>
   );
+}
+
+const breadCrumbsTitle = (el) => {
+    return el === "file_details"?"الملفات":el
 }
 
 // Setting default values for the props of Breadcrumbs

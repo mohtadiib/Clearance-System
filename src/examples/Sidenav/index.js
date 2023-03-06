@@ -49,7 +49,19 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     handleMiniSidenav();
     return () => window.removeEventListener("resize", handleMiniSidenav);
   }, [dispatch, location]);
-  const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, href, route }) => {
+
+  const activeItem = (key, namePath, subRoute) => {
+    const customPath = namePath.replace(/[0-9]/g, '');
+
+    if (key === namePath){
+      return true;
+    }else if (subRoute && subRoute.includes(customPath)){
+      return true
+    }
+    return false
+  }
+
+  const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, href, route, subRoute }) => {
     let returnValue;
 
     if (type === "collapse") {
@@ -70,7 +82,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         </Link>
       ) : (
         <NavLink key={key} to={route}>
-          <SidenavCollapse name={name} icon={icon} active={key === collapseName} />
+          <SidenavCollapse name={name} icon={icon} active={activeItem(key, collapseName, subRoute)} />
         </NavLink>
       );
     } else if (type === "title") {
@@ -104,6 +116,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 
     return returnValue;
   });
+
+
 
   return (
     <SidenavRoot

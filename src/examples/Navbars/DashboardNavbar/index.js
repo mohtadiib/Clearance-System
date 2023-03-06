@@ -31,13 +31,19 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
   const [openMenu, setOpenMenu] = useState(false);
   const routePath = useLocation().pathname;
-  const route =routePath.split("/").slice(1);
+  const route = routePath.split("/").slice(1);
+
+  const customPath = routePath.replace(/[0-9]/g, '');
+
   const getTitleAr = ()=> {
     const titleAr = routes.find((routeItem)=> routeItem.route === routePath)
     if (titleAr){
       return titleAr.name;
     }else {
-      return "";
+      if (customPath === "/file_details/"){
+        return "تفاصيل الملف";
+      }
+      return ``;
     }
   }
   useEffect(() => {
