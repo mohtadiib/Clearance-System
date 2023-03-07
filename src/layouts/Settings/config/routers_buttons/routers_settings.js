@@ -170,9 +170,9 @@ const settingsRoutes = [
         name: "بنود السلعة",
         key: "clearance_items",
         icon: <Icon fontSize="small">dashboard</Icon>,
-        tableName: "clearance_items",
-        customFetch: {table:"file_items",
-          table3:"clearance_categs", field3:"category_id"
+        // tableName: "clearance_items",
+        customFetch: {table:"clearance_items",
+          table3:"clearance_categs", field3:"clearance_categ_id"
         },
         headers: [
           { name: "الرقم", type: "" },

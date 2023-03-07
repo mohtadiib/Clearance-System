@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Grid from "@mui/material/Grid";
 import {Link} from "react-router-dom";
 import {Card, Skeleton} from "antd";
-import {EditOutlined, SettingOutlined} from "@ant-design/icons";
+import {DeleteFilled, EditOutlined, SettingOutlined} from "@ant-design/icons";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import MDBox from "../../../components/MDBox";
@@ -11,11 +11,8 @@ import urlServer from "../../../config/const";
 const { Meta } = Card;
 let list = []
 const GetFiles = ({form, xs, lg,selectable}) => {
-    const [filesData, setFilesData] = useState([]);
+    const [filesData, setFilesData] = useState([{},{},{},{},{},{}]);
     // const [selected,setSelected] = useState([]);
-    useEffect(()=>{
-        list = []
-    },[])
     const selectedFile = (id) =>{
         console.log(id)
         if (checkSelected(id)){
@@ -25,12 +22,12 @@ const GetFiles = ({form, xs, lg,selectable}) => {
                 list.splice(index, 1); // 2nd parameter means remove one item only
             }
             // setSelected(list)
-            }else {
+        }else {
             list.push(id)
-                // setSelected(prevState => [...prevState, id])
-            }
-            form.setFieldValue("items_count", list.length);
-            form.setFieldValue("files", list);
+            // setSelected(prevState => [...prevState, id])
+        }
+        form.setFieldValue("items_count", list.length);
+        form.setFieldValue("files", list);
         // form.setF
     }
 
@@ -39,15 +36,13 @@ const GetFiles = ({form, xs, lg,selectable}) => {
     }
 
     useEffect(() => {
-        // eslint-disable-next-line no-use-before-define
+        list = []
         getData();
     }, []);
     const [loading, setLoading] = useState(true);
     const getData = async () => {
         setLoading(true);
-        setFilesData([]);
-        // eslint-disable-next-line react/prop-types,react/destructuring-assignment
-        await axios.post(urlServer, { table: "files" }).then((res) => {
+        await axios.get(`${urlServer}customs/file/get-all/` ).then((res) => {
             setFilesData(res.data);
             setLoading(false);
         });
@@ -64,63 +59,54 @@ const GetFiles = ({form, xs, lg,selectable}) => {
         }
         return shippingType;
     }
-    // <Grid item xs={12} lg={6}>
+
 
     return (
-        <MDBox py={0}>
-            {
-                filesData.length?
-               <div className="scrollable-files">
-                   <div style={{direction:"rtl"}}>
-                       <Grid container spacing={3} style={{marginRight: 0}}>
-                           {filesData.map((file,index)=>
-                               <Grid key={file.id} item xs={xs} lg={lg}>
-                                   <Link to={selectable?'':`/file_details/${file.file_id}`} >
-                                       <Card
-                                           onClick={()=> !selectable?null:selectedFile(file.id)}
-                                           style={{
-                                               opacity:selectable?checkSelected(file.id)?1:.5:1,
-                                               width: 300,
-                                               marginTop: 0,
-                                           }}
-                                           actions={[
-                                               <SettingOutlined key="setting" />,
-                                               <EditOutlined key="edit" />,
-                                               <div>
-                                                   ختام التفاصيل
-                                               </div>,
-                                           ]}
-                                       >
-                                           <Skeleton loading={loading} avatar active>
-                                               <Meta
-                                                   avatar={
-                                                       checkSelected(file.id)?
-                                                           <CheckCircleIcon fontSize="large" color="success"/>:
-                                                           <FolderSpecialIcon fontSize="large" color="secondary"/>
-                                                   }
-                                                   title={shippingType(file.shipping_type)}
-                                                   description={
-                                                       <div>
-                                                           <div>
-                                                               ختام التفاصيل
-                                                           </div>
-                                                           <div>
-                                                               3000 SDG
-                                                           </div>
-                                                       </div>
-                                                   }
-                                               />
-                                           </Skeleton>
-                                       </Card>
-                                   </Link>
-                               </Grid>
-                           )}
-                       </Grid>
-                   </div>
-               </div>:
-                <div className="app-center">لا توجد ملفات</div>
-            }
-        </MDBox>
+        <div dir="rtl">
+            <MDBox py={3}>
+                <Grid container spacing={2}>
+                    {filesData.map((file,index)=>
+                        <Grid key={index} item xs={12} md={6} lg={3}>
+                            <MDBox mb={1.5}>
+                                <Link to={selectable?'':`/file_details/${file.file_id}`} >
+                                    <Card
+                                        onClick={()=> !selectable?null:selectedFile(file.id)}
+                                        actions={[
+                                            <SettingOutlined key="setting" />,
+                                            <DeleteFilled key="delete" />,
+                                            <div>
+                                                تفاصيل ..
+                                            </div>,
+                                        ]}
+                                    >
+                                        <Skeleton loading={loading} avatar active>
+                                            <Meta
+                                                avatar={
+                                                    checkSelected(file.id)?
+                                                        <CheckCircleIcon fontSize="large" color="success"/>:
+                                                        <FolderSpecialIcon fontSize="large" color="secondary"/>
+                                                }
+                                                title={shippingType(file.shipping_type)}
+                                                description={
+                                                    <div>
+                                                        <div>
+                                                            {file.current_step}
+                                                        </div>
+                                                        <div>
+                                                            3000 SDG
+                                                        </div>
+                                                    </div>
+                                                }
+                                            />
+                                        </Skeleton>
+                                    </Card>
+                                </Link>
+                            </MDBox>
+                        </Grid>
+                    )}
+                </Grid>
+            </MDBox>
+        </div>
     );
 };
 

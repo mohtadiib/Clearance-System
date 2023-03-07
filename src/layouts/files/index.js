@@ -12,14 +12,12 @@ function FilesShow() {
         <DashboardLayout>
             <DashboardNavbar />
               <div >
-                  <div style={{marginBottom:20,width:200}}>
-                      <Link to="/file_add">
-                          <MDButton variant="gradient" color="info">
-                              <div style={{marginLeft:"5px"}}>إضافة</div>
-                              <Icon>add</Icon>&nbsp;
-                          </MDButton>
-                      </Link>
-                  </div>
+                  <Link to="/file_add">
+                      <MDButton variant="gradient" color="info">
+                          <div style={{marginLeft:"5px"}}>إضافة</div>
+                          <Icon>add</Icon>&nbsp;
+                      </MDButton>
+                  </Link>
                   <GetFiles xs={12} lg={3.5}/>
               </div>
             <Footer />

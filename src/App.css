@@ -46,7 +46,7 @@
 
 .scrollable{
     direction: ltr;
-    height: 600px;
+    height: 550px;
     overflow: auto;
 }
 .scrollable-messages{
