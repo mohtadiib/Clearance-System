@@ -15,7 +15,7 @@ const productFieldList = [
 
 function FileDataStep() {
     const formFile = useContext(FileContext);
-    const [messageApi, contextHolder] = message.useMessage();
+    // const [messageApi, contextHolder] = message.useMessage();
     const [fileData, setFileData] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -35,7 +35,7 @@ function FileDataStep() {
 
     return (
         <div className="scrollable-file-data">
-            {contextHolder}
+            {/*{contextHolder}*/}
             <div style={{direction:"rtl"}}>
                 <Form.List name="ness_data">
                     {(containers) => (

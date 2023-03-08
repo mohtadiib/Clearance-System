@@ -4,12 +4,12 @@ import ContainerDetails from "./containers_details";
 import ProductStep from "./product_step/products-step";
 import FileDataStep from "./file_data/data_step";
 
-const stepsList = (call, value) => {
+const stepsList = (call, value, loadingGet) => {
   if (value === 2) {
     return [
       {
         title: "معلومات الملف",
-        content: <StepOne call={call} />,
+        content: <StepOne call={call} loadingGet={loadingGet}/>,
       },
       {
         title: "البيانات الضرورية",
