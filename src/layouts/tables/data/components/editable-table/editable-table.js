@@ -24,7 +24,8 @@ function EditableTable({ tableModel, list, loading }) {
 
   const handleAdd = () => {
     setAdd(true);
-    tableModel.model.id = +data[0].id + 1;
+    tableModel.model.id = data.length+1;
+
     // eslint-disable-next-line react/prop-types
     setData([tableModel.model, ...data]);
     // eslint-disable-next-line no-use-before-define,react/prop-types

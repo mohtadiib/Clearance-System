@@ -7,10 +7,10 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 // @mui material config
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Icon from "@mui/material/Icon";
+// import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React config
-import MDBox from "components/MDBox";
+// import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example config
 import Sidenav from "examples/Sidenav";
@@ -26,7 +26,6 @@ import themeDarkRTL from "assets/theme-dark/theme-rtl";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-
 // Material Dashboard 2 React routes
 import routes from "routes";
 
@@ -34,7 +33,7 @@ import routes from "routes";
 import {
   useMaterialUIController,
   setMiniSidenav,
-  setOpenConfigurator,
+  // setOpenConfigurator,
   setDirection,
 } from "context";
 
@@ -53,7 +52,7 @@ export default function App() {
     miniSidenav,
     direction,
     layout,
-    openConfigurator,
+    // openConfigurator,
     sidenavColor,
     transparentSidenav,
     whiteSidenav,
@@ -90,13 +89,13 @@ export default function App() {
   };
 
   // Change the openConfigurator state
-  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-  // Changing the direction to rtl
-  useEffect(() => {
-    setDirection(dispatch, "rtl");
-
-    return () => setDirection(dispatch, "ltr");
-  }, []);
+  // const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+  // // Changing the direction to rtl
+  // useEffect(() => {
+  //   setDirection(dispatch, "rtl");
+  //
+  //   return () => setDirection(dispatch, "ltr");
+  // }, []);
 
   // Changing the direction to rtl
   useEffect(() => {
@@ -129,29 +128,29 @@ export default function App() {
       return null;
     });
 
-  const configsButton = (
-    <MDBox
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      width="3.25rem"
-      height="3.25rem"
-      bgColor="white"
-      shadow="sm"
-      borderRadius="50%"
-      position="fixed"
-      right="2rem"
-      bottom="2rem"
-      zIndex={99}
-      color="dark"
-      sx={{ cursor: "pointer" }}
-      onClick={handleConfiguratorOpen}
-    >
-      <Icon fontSize="small" color="inherit">
-        settings
-      </Icon>
-    </MDBox>
-  );
+  // const configsButton = (
+  //   <MDBox
+  //     display="flex"
+  //     justifyContent="center"
+  //     alignItems="center"
+  //     width="3.25rem"
+  //     height="3.25rem"
+  //     bgColor="white"
+  //     shadow="sm"
+  //     borderRadius="50%"
+  //     position="fixed"
+  //     right="2rem"
+  //     bottom="2rem"
+  //     zIndex={99}
+  //     color="dark"
+  //     sx={{ cursor: "pointer" }}
+  //     onClick={handleConfiguratorOpen}
+  //   >
+  //     <Icon fontSize="small" color="inherit">
+  //       settings
+  //     </Icon>
+  //   </MDBox>
+  // );
 
   return (
       <CacheProvider value={rtlCache}>
@@ -174,10 +173,10 @@ export default function App() {
           {layout === "vr" && <Configurator />}
           <Routes>
             {getRoutes(routes)}
-            <Route path="file_add" element={<AddFilesData />} />
-            <Route path="operations" element={<Operations />} />
-            <Route path="add_operation" element={<AddOperation />} />
-            <Route path="file_details/:id" element={<IndexFileDetails />} />
+            <Route path="/file_add" element={<AddFilesData />} />
+            <Route path="/operations" element={<Operations />} />
+            <Route path="/add_operation" element={<AddOperation />} />
+            <Route path="/file_details/:id" element={<IndexFileDetails />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
         </ThemeProvider>
