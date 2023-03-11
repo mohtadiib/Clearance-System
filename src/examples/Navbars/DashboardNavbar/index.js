@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,7 +23,7 @@ import {
   setOpenConfigurator,
 } from "context";
 import routes from "../../../routes";
-import SearchField from "../search-field";
+import settingsRoutes from "../../../layouts/Settings/config/routers_buttons/routers_settings";
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
@@ -35,6 +35,22 @@ function DashboardNavbar({ absolute, light, isMini }) {
 
   const customPath = routePath.replace(/[0-9]/g, '');
 
+  const {listIndex, modelIndex} = useParams()
+  // const navigate = useNavigate()
+  let model = {}
+  const getModel = () => {
+    if (+modelIndex === 0 ){
+       model = settingsRoutes[listIndex].details[0]
+    }else {
+       model = settingsRoutes[listIndex].details.find((_,index)=> index === +modelIndex)
+    }
+  }
+  console.log("route.length")
+  console.log(route.length)
+  if (route.length > 2){
+      getModel()
+  }
+
   const getTitleAr = ()=> {
     const titleAr = routes.find((routeItem)=> routeItem.route === routePath)
     if (titleAr){
@@ -42,6 +58,8 @@ function DashboardNavbar({ absolute, light, isMini }) {
     }else {
       if (customPath === "/file_details/"){
         return "تفاصيل الملف";
+      }else if (customPath === "/Setting_details//"){
+        return model.name?model.name:"";
       }
       return ``;
     }
@@ -66,7 +84,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
 
   const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-  const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
 
   // Render the files menu

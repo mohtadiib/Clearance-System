@@ -1,5 +1,6 @@
 // @mui icons
 import Icon from "@mui/material/Icon";
+import * as React from "react";
 
 const settingsRoutes = [
   {
@@ -131,20 +132,31 @@ const settingsRoutes = [
           { name: "رقم الهاتف", type: "" },
           { name: "اسم المستخدم", type: "" },
           { name: "كلمة المرور", type: "" },
-          { name: "نوع الحساب", type: "" },
-          { name: "تاريخ الانشاء", type: "" },
+          { name: "نوع الحساب",
+            type: "local_select",
+            selectList: [
+              {
+                value: 1,
+                label: "عميل",
+              },
+              {
+                value: 2,
+                label: "مستخدم",
+              },
+            ]
+          },
           { name: "الحالة", type: "status" },
         ],
+        // model: { id: "0", name: "", steps: [], is_active: "" },
         model: {
-          id: "0",
-          name: "",
-          phone: "",
-          username: "",
-          password: "",
-          type: "",
-          status: "",
-        },
-      },
+          id:"1",
+          name:"",
+          phone:"",
+          username:"",
+          password:"",
+          type:[],
+          status:"0"},
+      }
     ],
   },
   {

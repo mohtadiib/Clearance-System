@@ -7,7 +7,7 @@ import {
     EditFilled,
 } from "@ant-design/icons";
 import axios from "axios";
-import urlServer from "../../../../../config/const";
+import {urlServer} from "../../../../../config/const";
 import { useNavigate} from "react-router-dom";
 import MDButton from "../../../../../components/MDButton";
 import Icon from "@mui/material/Icon";

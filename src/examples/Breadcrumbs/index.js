@@ -13,7 +13,14 @@ import MDTypography from "components/MDTypography";
 
 function Breadcrumbs({ icon, title, route, light }) {
   const routes = route.slice(0, -1);
-
+  let routesTemp = [];
+  if (routes.length > 1){
+      for (let i = 0;  i < routes.length-1; i++){
+          routesTemp.push(routes[0])
+      }
+  }else {
+      routesTemp = routes
+  }
   return (
     <MDBox mr={{ xs: 0, xl: 8 }}>
       <MuiBreadcrumbs
@@ -34,8 +41,8 @@ function Breadcrumbs({ icon, title, route, light }) {
             <Icon>{icon}</Icon>
           </MDTypography>
         </Link>
-        {routes.map((el) => (
-          <Link to={`/${el}`} key={el}>
+        {routesTemp.map((el) => (
+          <Link to={`/${redirect(el)}`} key={el}>
             <MDTypography
               component="span"
               variant="button"
@@ -73,7 +80,10 @@ function Breadcrumbs({ icon, title, route, light }) {
 }
 
 const breadCrumbsTitle = (el) => {
-    return el === "file_details"?"الملفات":el
+    return el === "file_details"?"الملفات":el === "Setting_details"?"الإعدادات":el
+}
+const redirect = (el) => {
+    return el === "file_details"?"files":el === "Setting_details"?"Settings":el
 }
 
 // Setting default values for the props of Breadcrumbs

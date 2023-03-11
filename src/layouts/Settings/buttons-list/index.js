@@ -13,7 +13,7 @@ export default function ButtonsList({ call , index}) {
                     <Grid item xs={2} sm={4} md={4} key={index}>
                         <SettingsButtons
                             call={() => {
-                                call(item);
+                                call(index);
                             }}
                             name={item.name}
                         />

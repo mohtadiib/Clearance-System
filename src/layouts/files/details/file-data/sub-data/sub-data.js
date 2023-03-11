@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import urlServer from "../../../../../config/const";
+import {urlServer} from "../../../../../config/const";
 import MasterData from "../master-data/master-data";
 
 function SubData({fileId}) {
@@ -11,6 +11,7 @@ function SubData({fileId}) {
 
     useEffect(() => {
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const getData = async () => {
         setFileData({data: [],loading: true});

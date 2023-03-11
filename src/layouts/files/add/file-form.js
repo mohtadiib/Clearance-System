@@ -5,7 +5,7 @@ import axios from "axios";
 import { FileContext } from "./index";
 import {useNavigate} from "react-router-dom";
 import StepsComponent from "./file-components/steps-component";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 import {succesMessage} from "../../../components/Notifications";
 import stepsList from "./file-components/steps-list";
 

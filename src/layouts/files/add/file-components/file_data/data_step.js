@@ -1,11 +1,9 @@
 /* eslint-disable import/no-cycle,no-console,no-unused-vars,no-plusplus,no-use-before-define,react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import {Form, InputNumber, Select, message, Input, Space, Button} from "antd";
+import {Form, Input } from "antd";
 import { FileContext } from "../../index";
-import SelectDocsElement from "../../../../tables/data/components/select-docs-element";
-import {PlusOutlined, PoweroffOutlined} from "@ant-design/icons";
 import axios from "axios";
-import urlServer from "../../../../../config/const";
+import {urlServer} from "../../../../../config/const";
 
 
 const productFieldList = [

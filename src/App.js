@@ -45,6 +45,7 @@ import AddFilesData from "./layouts/files/add";
 import IndexFileDetails from "./layouts/files/details";
 import Operations from "./layouts/operations/operations";
 import AddOperation from "./layouts/operations/add/index";
+import SettingDetails from "./layouts/Settings/setting-details";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -173,6 +174,7 @@ export default function App() {
           {layout === "vr" && <Configurator />}
           <Routes>
             {getRoutes(routes)}
+            <Route path="/Setting_details/:listIndex/:modelIndex" element={<SettingDetails />} />
             <Route path="/file_add" element={<AddFilesData />} />
             <Route path="/operations" element={<Operations />} />
             <Route path="/add_operation" element={<AddOperation />} />

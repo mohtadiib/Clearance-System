@@ -7,7 +7,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import MDBox from "../../../components/MDBox";
 import axios from "axios";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 const { Meta } = Card;
 let list = []
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import urlServer from "../../../../config/const";
+import {urlServer} from "../../../../config/const";
 
 
 const updateCurrentStep = async (fileId, current_step, call,error) => {

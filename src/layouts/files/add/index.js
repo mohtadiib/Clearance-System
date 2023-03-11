@@ -4,7 +4,7 @@ import axios from "axios";
 import DashboardLayout from "../../../examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "../../../examples/Navbars/DashboardNavbar";
 import Footer from "../../../examples/Footer";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 import FileForm from "./file-form";
 
 export const FileContext = createContext(null);
@@ -24,6 +24,7 @@ function AddFilesData() {
   const tablesList = ["services", "shipping_lines", "suppliers", "clearance_items"];
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const getData = async () => {
     setLoading(true);

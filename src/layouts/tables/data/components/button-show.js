@@ -4,7 +4,7 @@ import { Button, Modal, Skeleton, Tooltip } from "antd";
 import { EyeFilled } from "@ant-design/icons";
 import axios from "axios";
 import SortableElement from "../../../../components/dragable";
-import urlServer from "../../../../config/const";
+import {urlServer} from "../../../../config/const";
 
 // eslint-disable-next-line react/prop-types
 function ButtonShow({ recordKey, record, tableName, listTableName, recordValue, list }) {

@@ -7,7 +7,7 @@ import {
   EditFilled,
 } from "@ant-design/icons";
 import axios from "axios";
-import urlServer from "../../../../../config/const";
+import {urlServer} from "../../../../../config/const";
 import EditableCell from "../../selector/editable-cell/editable-cell";
 import NormalCellType from "../../selector/normal-cell";
 import { useNavigate} from "react-router-dom";

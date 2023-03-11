@@ -5,7 +5,7 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import EmailIcon from "@mui/icons-material/Email";
 import SendIcon from '@mui/icons-material/Send';
 import TimelineContent from "@mui/lab/TimelineContent";
-import {LoadingButton, TimelineItem} from "@mui/lab";
+import {LoadingButton } from "@mui/lab";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 
@@ -17,7 +17,7 @@ function MessageItem({message}) {
     }
 
     return (
-        <TimelineItem>
+        <div style={{display:"flex"}}>
             <TimelineSeparator>
                 <TimelineDot color="grey">
                     <EmailIcon />
@@ -27,12 +27,12 @@ function MessageItem({message}) {
             <Paper square elevation={0} sx={{ p: 2,m: 1, borderRadius: 2 , width: "100%" }}>
                 <TimelineContent >
                     <div style={{display: "flex"}}>
-                        <div style={{fontSize:13,fontWeight:"bold"}}>
+                        <div style={{textAlign:"right",width:"80%",fontSize:13,fontWeight:"bold"}}>
                             طلب إرسال مستند (
                             {message})
                         </div>
                         <Box
-                            style={{position: "absolute", left: 30, fontSize: 15}}
+                            style={{textAlign:"left",width:"20%", fontSize: 15}}
                             color="text.secondary"
                         >
                             9:30 am
@@ -59,7 +59,7 @@ function MessageItem({message}) {
                     </LoadingButton>
                 </div>
             </Paper>
-        </TimelineItem>
+        </div>
     );
 }
 

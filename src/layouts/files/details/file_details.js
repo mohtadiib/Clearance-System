@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 import {useParams} from "react-router-dom";
 import { FileDoneOutlined } from '@ant-design/icons';
 import {Tabs} from "antd";

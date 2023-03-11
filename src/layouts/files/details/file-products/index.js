@@ -2,7 +2,7 @@ import * as React from "react";
 import EditableTableFile from "./components/file-editable-table";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import urlServer from "../../../../config/const";
+import {urlServer} from "../../../../config/const";
 
 const model = {
     name: "البضاعة",
@@ -36,6 +36,7 @@ export default function FileProducts({fileId}) {
     useEffect(() => {
         // eslint-disable-next-line no-use-before-define
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const [loading, setLoading] = useState(false);
     const getData = async () => {

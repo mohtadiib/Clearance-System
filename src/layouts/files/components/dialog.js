@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useState} from "react";
 import axios from "axios";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 import {errorMessage, succesMessage} from "../../../components/Notifications";
 import {Delete} from "@mui/icons-material";
 import {LoadingButton} from "@mui/lab";

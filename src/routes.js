@@ -1,6 +1,6 @@
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Billing from "layouts/billing";
+import Clients from "layouts/clients";
 import SignIn from "layouts/authentication/sign-in";
 
 // @mui icons
@@ -38,10 +38,10 @@ const routes = [
   {
     type: "collapse",
     name: "العملاء",
-    key: "billing",
+    key: "clients",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/billing",
-    component: <Billing />,
+    route: "/clients",
+    component: <Clients />,
   },
   // {
   //   type: "collapse",
@@ -55,6 +55,7 @@ const routes = [
     type: "collapse",
     name: "الإعدادات",
     key: "Settings",
+    subRoute:["Setting_details//"],
     icon: <Icon fontSize="small">person</Icon>,
     route: "/Settings",
     component: <Settings />,

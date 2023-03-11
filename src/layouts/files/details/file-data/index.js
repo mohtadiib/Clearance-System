@@ -1,10 +1,8 @@
 import * as React from "react";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Icon from "@mui/material/Icon";
 import {useState} from "react";
 import {TabContext, TabList, TabPanel} from "@mui/lab";
-import Box from "@mui/material/Box";
 import MasterData from "./master-data/master-data";
 import SubData from "./sub-data/sub-data";
 

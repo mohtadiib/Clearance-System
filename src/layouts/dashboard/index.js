@@ -11,7 +11,7 @@ import Footer from "examples/Footer";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import urlServer from "../../config/const";
+import {urlServer} from "../../config/const";
 
 function Dashboard() {
     const [items, setItems] = useState({files:0,users:0});
@@ -19,6 +19,7 @@ function Dashboard() {
     const tablesList = ["files", "users"];
     useEffect(() => {
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const getData = async () => {
         setLoading(true);
@@ -37,6 +38,7 @@ function Dashboard() {
                     <Grid item xs={12} md={6} lg={3}>
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
+                                loading={loading}
                                 color="dark"
                                 icon="group_icon"
                                 title="عدد العملاء"
@@ -52,6 +54,7 @@ function Dashboard() {
                     <Grid item xs={12} md={6} lg={3}>
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
+                                loading={loading}
                                 icon="folder_copy_icon"
                                 title="إجمالي الملفات"
                                 count="0"
@@ -66,6 +69,7 @@ function Dashboard() {
                     <Grid item xs={12} md={6} lg={3}>
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
+                                loading={loading}
                                 color="success"
                                 icon="account_balance_walletIcon"
                                 title="إجمالي العهد"
@@ -81,6 +85,7 @@ function Dashboard() {
                     <Grid item xs={12} md={6} lg={3}>
                         <MDBox mb={1.5}>
                             <ComplexStatisticsCard
+                                loading={loading}
                                 color="dark"
                                 icon="folder_zip_icon"
                                 title="عدد الملفات"

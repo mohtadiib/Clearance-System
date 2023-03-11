@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ConfigProvider } from "antd";
 import arEG from "antd/locale/ar_EG";
 import EditableTable from "./components/editable-table/editable-table";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 // eslint-disable-next-line no-unused-vars
 
 // eslint-disable-next-line react/prop-types,no-unused-vars

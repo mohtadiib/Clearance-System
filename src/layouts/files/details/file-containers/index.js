@@ -1,7 +1,7 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import urlServer from "../../../../config/const";
+import {urlServer} from "../../../../config/const";
 import EditableTableFile from "../file-products/components/file-editable-table";
 
 const model = {
@@ -10,8 +10,7 @@ const model = {
     addButton: "",
     foreignKey:"",
     tableName: "file_containers",
-    customFetch: {table:"file_containers",
-                  data:{"container_no":"43234","container_size":"234","id":0,"file_id":"20230228100242983"}},
+    customFetch: {table:"file_containers",field1:"file_id",id:""},
     headers: [
         { indexKey: "id",name: "الرقم", type: "" },
         { indexKey: "container_no",name: "رقم الحاوية", type: "" },
@@ -30,6 +29,7 @@ export default function FileContainers({fileId}) {
     useEffect(() => {
         // eslint-disable-next-line no-use-before-define
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const [loading, setLoading] = useState(false);
     const getData = async () => {

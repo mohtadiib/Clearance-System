@@ -11,7 +11,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import Grid from "@mui/material/Grid";
 import AddOperationData from "./add-operation";
 import GetFiles from "../../files/get/get-files";
-import urlServer from "../../../config/const";
+import {urlServer} from "../../../config/const";
 import axios from "axios";
 import {useState} from "react";
 import Box from "@mui/material/Box";

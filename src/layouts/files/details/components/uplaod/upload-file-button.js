@@ -1,7 +1,7 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload } from 'antd';
 import {useState} from "react";
-import urlServer from "../../../../../config/const";
+import {urlServer} from "../../../../../config/const";
 import axios from "axios";
 import getRandomInt from "../../../../../config/randomInt";
 

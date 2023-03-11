@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Select } from "antd";
 import axios from "axios";
-import urlServer from "../../../../config/const";
+import {urlServer} from "../../../../config/const";
 
 let options = [];
 

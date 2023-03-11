@@ -44,7 +44,7 @@ const model = {
             status:"0"},
     }
 
-function Billing() {
+function Clients() {
     return (
     <DashboardLayout>
         <DashboardNavbar />
@@ -54,4 +54,4 @@ function Billing() {
   );
 }
 
-export default Billing;
+export default Clients;
