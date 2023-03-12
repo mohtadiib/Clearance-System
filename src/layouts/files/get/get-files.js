@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import Grid from "@mui/material/Grid";
 import { useNavigate} from "react-router-dom";
-import { Empty, Skeleton} from "antd";
+import { Empty } from "antd";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import MDBox from "../../../components/MDBox";
 import axios from "axios";
 import {urlServer} from "../../../config/const";
 import Typography from "@mui/material/Typography";
-import {Card, CardActionArea, CardActions, CardContent, Divider, IconButton} from "@mui/material";
+import {Card, CardActionArea, CardActions, CardContent, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import Skeleton from "@mui/material/Skeleton";
 let list = []
 
 const GetFiles = ({form, lg,selectable, deleteFile}) => {
@@ -82,14 +83,14 @@ const GetFiles = ({form, lg,selectable, deleteFile}) => {
                 <Grid container spacing={2} sx={{marginLeft:0}}>
                     {filesData.map((file, index) =>
                         <Grid key={index} item xs={12} md={6} lg={lg}>
-                            <MDBox shadow={0} m={1}>
-                                <Card elevation={50}>
+                            <MDBox m={1}>
+                                <Card >
                                     <CardActionArea
                                         style={{padding:20,borderRadius:10}}
-                                        onClick={() => !selectable ? handleNavigate(file.file_id) : selectedFile(file.id)}
+                                        onClick={() => loading?null:!selectable ? handleNavigate(file.file_id) : selectedFile(file.id)}
                                     >
                                         <MDBox display="flex">
-                                            {!selectable ?
+                                            {loading?<Skeleton width={40} height={50}/>:!selectable ?
                                                 <FolderSpecialIcon fontSize="large" color="secondary"/>:
                                                 checkSelected(file.id) ?
                                                     <CheckCircleIcon fontSize="large" color="success"/> :
@@ -102,18 +103,19 @@ const GetFiles = ({form, lg,selectable, deleteFile}) => {
                                         </MDBox>
                                         <CardContent>
                                             <Typography variant="body2" color="text.secondary">
-                                                {file.current_step}
+                                                {loading?<Skeleton width="100%"/>:file.current_step}
                                             </Typography>
                                             <Typography variant="body2" color="text.secondary">
-                                                3000 SDG
+                                                {loading?<Skeleton width="100%"/>:"3000 SDG"}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
                                     {selectable?
                                         null:<CardActions>
-                                        <IconButton aria-label="share">
-                                            <DeleteIcon color="error"/>
-                                        </IconButton>
+                                            {loading?<Skeleton width="10%"/>:
+                                                <IconButton aria-label="share">
+                                                <DeleteIcon onClick={() => handleDelete(file.id)}/>
+                                            </IconButton>}
                                     </CardActions>}
                                 </Card>
                                {/* <Card
