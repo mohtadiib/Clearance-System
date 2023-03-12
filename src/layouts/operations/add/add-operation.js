@@ -1,5 +1,5 @@
 import {
-    Form,
+    Form, Input,
     InputNumber,
     Switch,
 } from 'antd';
@@ -9,7 +9,17 @@ import SelectDocsElement from "../../tables/data/components/select-docs-element"
 const AddOperationData = ({form}) => {
     return (
         <div>
-            <SelectDocsElement formed label="العميل" single form={form} tableName="users" dataIndex="user" title="العميل" />
+            <SelectDocsElement
+                customAddOperation
+                customForFileAdd
+                formed
+                label="العميل"
+                single
+                form={form}
+                tableName="users"
+                dataIndex="user"
+                title="العميل"
+            />
             <Form.Item
                 label="إجمالي العهدة"
                 name="total"
@@ -20,7 +30,7 @@ const AddOperationData = ({form}) => {
                     }
                 ]}
             >
-                <InputNumber />
+                <InputNumber style={{width:"100%"}}/>
             </Form.Item>
             <Form.Item label="عدد الملفات" name="items_count"
                        rules={[
@@ -30,7 +40,7 @@ const AddOperationData = ({form}) => {
                            },
                        ]}
             >
-                <InputNumber disabled />
+                <Input disabled />
             </Form.Item>
             <Form.Item label="حالة العملية" name="status" valuePropName="checked">
                 <Switch checkedChildren="مفعلة" unCheckedChildren="غير مفعلة" defaultChecked/>

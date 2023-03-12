@@ -175,9 +175,9 @@ export default function App() {
           <Routes>
             {getRoutes(routes)}
             <Route path="/Setting_details/:listIndex/:modelIndex" element={<SettingDetails />} />
-            <Route path="/file_add" element={<AddFilesData />} />
+            <Route path="/file_add/:new" element={<AddFilesData />} />
             <Route path="/operations" element={<Operations />} />
-            <Route path="/add_operation" element={<AddOperation />} />
+            <Route path="/add_operation/:new" element={<AddOperation />} />
             <Route path="/file_details/:id" element={<IndexFileDetails />} />
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>

@@ -7,7 +7,7 @@ import {urlServer} from "../../../../config/const";
 let options = [];
 
 // eslint-disable-next-line react/prop-types,no-unused-vars
-function SelectDocsElement({ customForFileAdd, restField, single, form, tableName, dataIndex, title }) {
+function SelectDocsElement({ customAddOperation,customForFileAdd, restField, single, form, tableName, dataIndex, title }) {
   const handleChange = (value) => {
     // eslint-disable-next-line no-console
     console.log(value);
@@ -51,7 +51,7 @@ function SelectDocsElement({ customForFileAdd, restField, single, form, tableNam
           placeholder="اضغط للاختيار"
           onChange={handleChange}
           style={{
-            width:customForFileAdd?150:"100%"
+            width:customForFileAdd?customAddOperation?"100%":150:"100%"
           }}
           options={options}
       />
@@ -62,11 +62,14 @@ function SelectDocsElement({ customForFileAdd, restField, single, form, tableNam
           label={customForFileAdd?title:""}
           name={dataIndex}
           style={{
-            margin: 0,
+            margin: customAddOperation?"":0,
             marginRight:customForFileAdd?20:0
           }}
           labelCol={{
-            span: customForFileAdd?0:6,
+            span: customForFileAdd?customAddOperation?4:0:6,
+          }}
+          wrapperCol={{
+              span: customAddOperation?14:"",
           }}
           rules={[
             {

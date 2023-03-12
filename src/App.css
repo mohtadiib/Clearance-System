@@ -56,7 +56,7 @@
 }
 .scrollable-file-data{
     direction: ltr;
-    height: 400px;
+    height: 500px;
     overflow: auto;
 }
 

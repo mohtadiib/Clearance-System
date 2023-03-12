@@ -45,8 +45,8 @@ function DashboardNavbar({ absolute, light, isMini }) {
        model = settingsRoutes[listIndex].details.find((_,index)=> index === +modelIndex)
     }
   }
-  console.log("route.length")
-  console.log(route.length)
+  console.log("customPath")
+  console.log(customPath)
   if (route.length > 2){
       getModel()
   }
@@ -60,6 +60,8 @@ function DashboardNavbar({ absolute, light, isMini }) {
         return "تفاصيل الملف";
       }else if (customPath === "/Setting_details//"){
         return model.name?model.name:"";
+      }else if (customPath === "/add_operation/new"){
+        return "إضافة عملية";
       }
       return ``;
     }

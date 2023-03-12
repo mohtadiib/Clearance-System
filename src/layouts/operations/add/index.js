@@ -81,7 +81,9 @@ export default function AddOperation(){
                                 <AddOperationData form={form}/>
                             </Grid>
                             <Grid item xs={6}>
-                                <GetFiles form={form} xs={12} lg={6} selectable />
+                                <div className="scrollable-file-data">
+                                    <GetFiles form={form} xs={12} lg={6} selectable />
+                                </div>
                                 <Form.Item name="files" >
                                     <div></div>
                                 </Form.Item>

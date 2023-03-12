@@ -80,10 +80,10 @@ function Breadcrumbs({ icon, title, route, light }) {
 }
 
 const breadCrumbsTitle = (el) => {
-    return el === "file_details"?"الملفات":el === "Setting_details"?"الإعدادات":el
+    return el === "file_details"?"الملفات":el === "Setting_details"?"الإعدادات":el === "add_operation"?"العمليات":el
 }
 const redirect = (el) => {
-    return el === "file_details"?"files":el === "Setting_details"?"Settings":el
+    return el === "file_details"?"files":el === "Setting_details"?"Settings":el === "add_operation"?"operations":el
 }
 
 // Setting default values for the props of Breadcrumbs

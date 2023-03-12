@@ -22,13 +22,15 @@ function FilesShow() {
         <DashboardLayout>
             <DashboardNavbar />
               <div >
-                  <Link to="/file_add">
+                  <Link to="/file_add/new">
                       <MDButton variant="gradient" color="info">
                           <div style={{marginLeft:"5px"}}>إضافة</div>
                           <Icon>add</Icon>&nbsp;
                       </MDButton>
                   </Link>
-                  <GetFiles xs={12} lg={3.5} deleteFile={handleDelete}/>
+                  <div className="scrollable-files">
+                      <GetFiles lg={3} deleteFile={handleDelete}/>
+                  </div>
                   <AlertDialog open={open} handleClose={handleClose}/>
               </div>
             <Footer />

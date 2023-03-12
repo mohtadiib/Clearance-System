@@ -10,7 +10,7 @@ const model = {
     key: "users",
     icon: <Icon fontSize="small">dashboard</Icon>,
     tableName: "operations",
-    addButton: "/add_operation",
+    addButton: "/add_operation/new",
     headers: [
         { name: "الرقم", type: "" },
         { name: "رقم العملية", type: "" },

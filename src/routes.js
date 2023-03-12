@@ -30,6 +30,7 @@ const routes = [
   {
     type: "collapse",
     name: "العمليات",
+    subRoute:["/add_operation"],
     key: "operations",
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/operations",
