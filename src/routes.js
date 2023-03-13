@@ -38,10 +38,10 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "العملاء",
-    key: "clients",
+    name: "الموردون",
+    key: "suppliers",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/clients",
+    route: "/suppliers",
     component: <Clients />,
   },
   // {

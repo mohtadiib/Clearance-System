@@ -23,7 +23,7 @@ function NormalCellType({
   };
   switch (filedType) {
     case "local_select":
-      tableField = <BadgeElement normal value={optionsLocal[+recordValue].label} status={switchStatus.badge} />;
+      tableField = <BadgeElement normal actualValue={+recordValue} value={optionsLocal[+recordValue].label} status={switchStatus.badge} />;
       break;
     case "badge":
       tableField = <BadgeElement value={recordValue} status={switchStatus.badge} />;

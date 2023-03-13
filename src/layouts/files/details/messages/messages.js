@@ -8,8 +8,6 @@ import {urlServer} from "../../../../config/const";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import SearchOffIcon from '@mui/icons-material/SearchOff';
-import MDTypography from "../../../../components/MDTypography";
-import {Box} from "@mui/material";
 
 export default function TimelineMessages() {
     const { id } = useParams()
@@ -36,11 +34,6 @@ export default function TimelineMessages() {
 
     return (
         <div className="scrollable-messages">
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <MDTypography variant="h5" fontWeight="medium" >
-                    الرسائل
-                </MDTypography>
-            </Box>
             <div style={{direction:"rtl"}}>
                 {
                     found.data.length?

@@ -7,6 +7,7 @@ import TimelineMessages from "./messages/messages";
 import FilesDetails from "./file_details";
 import AlertApp from "../../../components/AntAlert/alert";
 import {useState} from "react";
+import MDTypography from "../../../components/MDTypography";
 
 export default function IndexFileDetails() {
 
@@ -21,16 +22,19 @@ export default function IndexFileDetails() {
         <DashboardLayout>
             <DashboardNavbar />
             <AlertApp open={alert} setOpen={setAlert} />
-            <Box sx={{ width: '100%' }}>
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid item xs={8}>
-                        <FilesDetails nextError={nextError}/>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <TimelineMessages />
-                    </Grid>
+            <Grid container spacing={3}>
+                <Grid item xs={12} md={2} lg={7}>
+                    <FilesDetails nextError={nextError}/>
                 </Grid>
-            </Box>
+                <Grid className="hidden-mobile" item xs={12} md={6} lg={5}>
+                    <Box sx={{marginLeft:3}}>
+                        <MDTypography variant="h5" fontWeight="medium" >
+                            الرسائل
+                        </MDTypography>
+                    </Box>
+                    <TimelineMessages />
+                </Grid>
+            </Grid>
         </DashboardLayout>
     );
 }

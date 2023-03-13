@@ -5,6 +5,7 @@ import Footer from "../../examples/Footer";
 import AxiosTable from "../tables/data/axios_table";
 import Icon from "@mui/material/Icon";
 
+/*
 const model = {
         name: "العملاء",
         key: "users",
@@ -43,6 +44,31 @@ const model = {
             create_at: "",
             status:"0"},
     }
+*/
+const model = {
+            name: "الموردون",
+            key: "suppliers",
+            icon: <Icon fontSize="small">dashboard</Icon>,
+            tableName: "suppliers",
+            headers: [
+                { name: "الرقم", type: "" },
+                { name: "الاسم", type: "" },
+                { name: "الايميل", type: "" },
+                { name: "الموقع", type: "" },
+                { name: "الرقم الضريبي", type: "" },
+                { name: "الرصيد", type: "" },
+                { name: "الحالة", type: "status" },
+            ],
+            model: {
+                id: "0",
+                name: "",
+                email: "",
+                site: "",
+                tax_no: "",
+                balance: "",
+                is_active: "0",
+            },
+        }
 
 function Clients() {
     return (

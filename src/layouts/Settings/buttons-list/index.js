@@ -8,7 +8,19 @@ export default function ButtonsList({ call , index}) {
     return (
         <div>
             <h5>{settingsRoutes[index].title}</h5>
-            <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 5, sm: 4, md: 20 }}>
+            <Grid container spacing={3}>
+                {settingsRoutes[index].details.map((item, index) => (
+                    <Grid item xs={12} md={6} lg={3}>
+                        <SettingsButtons
+                            call={() => {
+                                call(index);
+                            }}
+                            name={item.name}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
+           {/* <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 5, sm: 4, md: 20 }}>
                 {settingsRoutes[index].details.map((item, index) => (
                     <Grid item xs={2} sm={4} md={4} key={index}>
                         <SettingsButtons
@@ -19,7 +31,7 @@ export default function ButtonsList({ call , index}) {
                         />
                     </Grid>
                 ))}
-            </Grid>
+            </Grid>*/}
             <br />
         </div>
     );

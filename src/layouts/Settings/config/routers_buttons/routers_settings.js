@@ -74,30 +74,6 @@ const settingsRoutes = [
         },
       },
       {
-        name: "الموردون",
-        key: "suppliers",
-        icon: <Icon fontSize="small">dashboard</Icon>,
-        tableName: "suppliers",
-        headers: [
-          { name: "الرقم", type: "" },
-          { name: "الاسم", type: "" },
-          { name: "الايميل", type: "" },
-          { name: "الموقع", type: "" },
-          { name: "الرقم الضريبي", type: "" },
-          { name: "الرصيد", type: "" },
-          { name: "الحالة", type: "status" },
-        ],
-        model: {
-          id: "0",
-          name: "",
-          email: "",
-          site: "",
-          tax_no: "",
-          balance: "",
-          is_active: "0",
-        },
-      },
-      {
         name: "الخطوط الملاحية",
         key: "shipping_lines",
         icon: <Icon fontSize="small">dashboard</Icon>,
@@ -136,12 +112,12 @@ const settingsRoutes = [
             type: "local_select",
             selectList: [
               {
-                value: 1,
-                label: "عميل",
+                value: 0,
+                label: "متابع",
               },
               {
-                value: 2,
-                label: "مستخدم",
+                value: 1,
+                label: "مدير",
               },
             ]
           },

@@ -67,17 +67,15 @@ function EditableTable({ tableModel, list, loading }) {
       // eslint-disable-next-line react/prop-types
       table: tableModel.tableName,
       data: record,
+      id: record.id
     };
     const myJSON = JSON.stringify(body);
-    // eslint-disable-next-line no-console
-    console.log("all record data");
-    // eslint-disable-next-line no-console
-    console.log(myJSON);
     const urlApi = add ? `${urlServer}insert/` : `${urlServer}update/`;
     await axios
       .post(urlApi, myJSON)
-      .then(() => {
+      .then((res) => {
         call();
+        console.log(`res.data: ${res.data}`);
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -117,10 +115,6 @@ function EditableTable({ tableModel, list, loading }) {
           setData(newData);
           setEditingKey({ edit: "", loading: "" });
           setAdd(false);
-          // eslint-disable-next-line no-console
-          console.log("done process");
-          // eslint-disable-next-line no-console
-          console.log(add);
         });
       } else {
         newData.push(row);
@@ -155,7 +149,7 @@ function EditableTable({ tableModel, list, loading }) {
       columns.push({
         title: tableModel.headers[i].name,
         dataIndex: getKeys(data[0])[i],
-        editable: false,
+        editable: true,
         width: "1%",
         render: (_, record) => (
             <div style={{ width: 35 }}>
@@ -262,7 +256,7 @@ function EditableTable({ tableModel, list, loading }) {
   return (
     <Form form={form} component={false}>
       <div style={{marginBottom:20}}>
-        <MDButton onClick={handleAdd} variant="gradient" color="info">
+        <MDButton disabled={editingKey.edit!==""} onClick={handleAdd} variant="gradient" color="info">
           <div style={{marginLeft:"5px"}}>إضافة</div>
           <Icon>add</Icon>&nbsp;
         </MDButton>

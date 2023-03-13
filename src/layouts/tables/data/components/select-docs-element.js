@@ -51,7 +51,7 @@ function SelectDocsElement({ customAddOperation,customForFileAdd, restField, sin
           placeholder="اضغط للاختيار"
           onChange={handleChange}
           style={{
-            width:customForFileAdd?customAddOperation?"100%":150:"100%"
+            width:customForFileAdd?customAddOperation?"":150:"100%"
           }}
           options={options}
       />
@@ -63,13 +63,13 @@ function SelectDocsElement({ customAddOperation,customForFileAdd, restField, sin
           name={dataIndex}
           style={{
             margin: customAddOperation?"":0,
-            marginRight:customForFileAdd?20:0
+            marginRight:customForFileAdd?customAddOperation?"":20:0
           }}
           labelCol={{
-            span: customForFileAdd?customAddOperation?4:0:6,
+            span: customForFileAdd?customAddOperation?5:0:6,
           }}
           wrapperCol={{
-              span: customAddOperation?14:"",
+              span: customAddOperation?20:"",
           }}
           rules={[
             {

@@ -45,8 +45,8 @@ function DashboardNavbar({ absolute, light, isMini }) {
        model = settingsRoutes[listIndex].details.find((_,index)=> index === +modelIndex)
     }
   }
-  console.log("customPath")
-  console.log(customPath)
+  // console.log("customPath")
+  // console.log(customPath)
   if (route.length > 2){
       getModel()
   }

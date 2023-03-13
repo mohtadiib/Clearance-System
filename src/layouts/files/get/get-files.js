@@ -8,9 +8,10 @@ import MDBox from "../../../components/MDBox";
 import axios from "axios";
 import {urlServer} from "../../../config/const";
 import Typography from "@mui/material/Typography";
-import {Card, CardActionArea, CardActions, CardContent, IconButton} from "@mui/material";
+import {Card, CardActionArea, CardActions, Divider, IconButton} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Skeleton from "@mui/material/Skeleton";
+import MDTypography from "../../../components/MDTypography";
 let list = []
 
 const GetFiles = ({form, lg,selectable, deleteFile}) => {
@@ -80,13 +81,20 @@ const GetFiles = ({form, lg,selectable, deleteFile}) => {
                     <Empty description="لا توجد ملفات"/>
                 </div>
                 :<MDBox py={3}>
-                <Grid container spacing={2} sx={{marginLeft:0}}>
+                <Grid container spacing={2} sx={{marginLeft:0, width:"100%"}}>
                     {filesData.map((file, index) =>
                         <Grid key={index} item xs={12} md={6} lg={lg}>
                             <MDBox m={1}>
                                 <Card >
                                     <CardActionArea
-                                        style={{padding:20,borderRadius:10}}
+                                        style={{
+                                            padding:20,
+                                            borderTopLeftRadius:10,
+                                            borderTopRightRadius:10,
+                                            borderBottomRightRadius:selectable?10:0,
+                                            borderBottomLeftRadius:selectable?10:0,
+                                            maxHeight:130
+                                         }}
                                         onClick={() => loading?null:!selectable ? handleNavigate(file.file_id) : selectedFile(file.id)}
                                     >
                                         <MDBox display="flex">
@@ -96,27 +104,33 @@ const GetFiles = ({form, lg,selectable, deleteFile}) => {
                                                     <CheckCircleIcon fontSize="large" color="success"/> :
                                                     <FolderSpecialIcon fontSize="large" color="secondary"/>}
                                            <MDBox m={1}>
-                                               <Typography variant="h5" component="div" color="text.secondary">
+                                               <MDTypography style={{fontSize:15}}>
+                                                   {file.supplier_name}
+                                               </MDTypography>
+                                               <MDTypography fontWeight="bold" textTransform="uppercase" style={{fontSize:15}}>
                                                    {shippingType(file.shipping_type)}
-                                               </Typography>
+                                               </MDTypography>
                                            </MDBox>
                                         </MDBox>
-                                        <CardContent>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {loading?<Skeleton width="100%"/>:file.current_step}
+                                        <Divider style={{marginTop:0.5}}/>
+                                        <MDBox display="flex" >
+                                            <Typography style={{fontSize:12}} ml={4} textAlign="right" variant="body2" color="text.secondary">
+                                                {loading?<Skeleton width="100%"/>:file.current_step} -
                                             </Typography>
-                                            <Typography variant="body2" color="text.secondary">
+                                            <Typography style={{fontSize:15}} ml={1} textAlign="right" variant="body2" color="text.secondary">
                                                 {loading?<Skeleton width="100%"/>:"3000 SDG"}
                                             </Typography>
-                                        </CardContent>
+                                        </MDBox>
                                     </CardActionArea>
                                     {selectable?
-                                        null:<CardActions>
+                                        null:
+                                        <CardActions style={{maxHeight:40}}>
                                             {loading?<Skeleton width="10%"/>:
                                                 <IconButton aria-label="share">
                                                 <DeleteIcon onClick={() => handleDelete(file.id)}/>
                                             </IconButton>}
-                                    </CardActions>}
+                                        </CardActions>
+                                    }
                                 </Card>
                                {/* <Card
                                     actions={[

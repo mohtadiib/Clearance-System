@@ -125,18 +125,20 @@ function FilesDetails({nextError}) {
     return (
         <div>
             <AlertApp open={alert} setOpen={setAlert} />
-            <Tabs
-                onChange={onChange}
-                type="card"
-                items={tabsList(filesData.data.file_id,filesData.data.steps,filesData.data.docs,filesData.data,
-                    openModal,nextError).map((tab, i) => {
-                    return {
-                        label: tab.title+" "+getLevel(i),
-                        key: i,
-                        children: tab.element,
-                    };
-                })}
-            />
+            <div className="hidden-mobile-dir">
+                <Tabs
+                    onChange={onChange}
+                    type="card"
+                    items={tabsList(filesData.data.file_id,filesData.data.steps,filesData.data.docs,filesData.data,
+                        openModal,nextError).map((tab, i) => {
+                        return {
+                            label: tab.title+" "+getLevel(i),
+                            key: i,
+                            children: tab.element,
+                        };
+                    })}
+                />
+            </div>
             <ModalShow open={open} handleClose={()=> setOpen({open: false,imgPath: ""})}/>
         </div>
     );

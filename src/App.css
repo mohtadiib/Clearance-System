@@ -91,3 +91,16 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #c7c7c7;
 }
+
+
+.mobile-mode{
+
+}
+@media (max-width: 767px) {
+    .hidden-mobile {
+        display: none;
+    }
+    .hidden-mobile-dir {
+        direction: ltr;
+    }
+}
