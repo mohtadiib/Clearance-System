@@ -33,6 +33,7 @@ function SwitchElement({ form, dataIndex, title, status }) {
   return (
     <Form.Item
       name={dataIndex}
+      valuePropName="checked"
       style={{
         margin: 0,
       }}

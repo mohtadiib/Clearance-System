@@ -69,6 +69,7 @@ function EditableTable({ tableModel, list, loading }) {
       data: record,
       id: record.id
     };
+    console.log(body)
     const myJSON = JSON.stringify(body);
     const urlApi = add ? `${urlServer}insert/` : `${urlServer}update/`;
     await axios
