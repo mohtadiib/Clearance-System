@@ -1,217 +1,179 @@
-# [Material Dashboard 2 React](http://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-mdr) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/material-dashboard-react&text=Check%20Material%20Dashboard%202%20react%20made%20by%20@CreativeTim%20#webdesign%20#dashboard%20#materialdesign%20#react%20https://www.creative-tim.com/product/material-dashboard-react)
+بالطبع، يمكنني مساعدتك في كتابة ملف `README.md` لمشروع React.js الخاص بك. سنركز على شرح المشروع وكيفية تشغيله وإدارته. إليك الشرح المطلوب:
 
-![version](https://img.shields.io/badge/version-2.1.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-dashboard-react.svg)](https://github.com/creativetimofficial/material-dashboard-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-dashboard-react.svg)](https://github.com/creativetimofficial/material-dashboard-react/issues?q=is%3Aissue+is%3Aclosed)
+---
 
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/71/original/material-dashboard-react.jpg?1638950990)
+# Clearance Office Management System - Frontend
 
-Material Dashboard 2 React is our newest free MUI Admin Template based on React. If you’re a developer looking to create an admin dashboard that is developer-friendly, rich with features, and highly customisable, here is your match. Our innovative MUI & React dashboard comes with a beautiful design inspired by Google's Material Design and it will help you create stunning websites & web apps to delight your clients.
+This repository contains the frontend code for the Clearance Office Management System built using React.js. The system includes various modules for managing clients, shipping companies, and client files.
 
-**Fully Coded Elements**
-Material Dashboard 2 React is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using MUI styled() API and sx prop. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
-
-This free MUI & React Dashboard is coming with prebuilt design blocks, so the development process is seamless,
-switching from our pages to the real website is very easy to be done.
-
-View [all components here](https://www.creative-tim.com/learning-lab/react/alerts/material-dashboard/).
-
-**Documentation built by Developers**
-
-Each element is well presented in very complex documentation.
-
-You can read more about the [documentation here](https://www.creative-tim.com/learning-lab/react/overview/material-dashboard/).
-
-**Example Pages**
-
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. You will be able to quickly set up the basic structure for your web project.
-
-View [example pages here](https://demos.creative-tim.com/material-dashboard-react/#/dashboard).
-
-**HELPFUL LINKS**
-
-- View [Github Repository](https://github.com/creativetimofficial/material-dashboard-react)
-- Check [FAQ Page](https://www.creative-tim.com/faq)
-
-#### Special thanks
-
-During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-
-- [MUI](https://mui.com/) - The React UI library for faster and easier web development.
-- [React ChartJS 2](http://reactchartjs.github.io/react-chartjs-2/#/) - Simple yet flexible React charting for designers & developers.
-- [ChromaJS](https://gka.github.io/chroma.js/) - A small-ish zero-dependency JavaScript library for all kinds of color conversions and color scales.
-
-Let us know your thoughts below. And good luck with development!
-
-## Table of Contents
-
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
-
-## Versions
-
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react-logo.png?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-react?ref=readme-mdr)
-
-| React |
-| ----- |
-
-| [![Material Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/71/thumb/material-dashboard-react.jpg?1638950990)](http://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-mdr)
-
-## Demo
-
-- [Dashboard](http://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-sudr)
-- [Profile](https://demos.creative-tim.com/material-dashboard-react/#/profile?ref=readme-sudr)
-- [RTL](https://demos.creative-tim.com/material-dashboard-react/#/rtl?ref=readme-sudr)
-- [Sign In](https://demos.creative-tim.com/material-dashboard-react/#/authentication/sign-in?ref=readme-sudr)
-- [Sign Up](https://demos.creative-tim.com/material-dashboard-react/#/authentication/sign-up?ref=readme-sudr)
-
-[View More](https://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-mdr).
-
-## Quick start
-
-Quick start options:
-
-- Download from [Creative Tim](https://www.creative-tim.com/product/material-dashboard-react?ref=readme-mdr).
-
-## Terminal Commands
-
-1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
-2. Navigate to the root ./ directory of the product and run `yarn install` or `npm install` to install our local dependencies.
-
-## Documentation
-
-The documentation for the Material Dashboard is hosted at our [website](https://www.creative-tim.com/learning-lab/react/overview/material-dashboard/?ref=readme-mdr).
-
-### What's included
-
-Within the download you'll find the following directories and files:
+## Project Structure
 
 ```
-material-dashboard-react
-    ├── public
-    │   ├── apple-icon.png
-    │   ├── favicon.png
-    │   ├── index.html
-    │   ├── manifest.json
-    │   └── robots.txt
-    ├── src
-    │   ├── assets
-    │   │   ├── images
-    │   │   └── theme
-    │   │       ├── base
-    │   │       ├── components
-    │   │       ├── functions
-    │   │       ├── operations.js
-    │   │       └── theme-rtl.js
-    │   │   └── theme-dark
-    │   │       ├── base
-    │   │       ├── components
-    │   │       ├── functions
-    │   │       ├── operations.js
-    │   │       └── theme-rtl.js
-    │   ├── components
-    │   │   ├── MDAlert
-    │   │   ├── MDAvatar
-    │   │   ├── MDBadge
-    │   │   ├── MDBox
-    │   │   ├── MDButton
-    │   │   ├── MDInput
-    │   │   ├── MDPagination
-    │   │   ├── MDProgress
-    │   │   ├── MDSnackbar
-    │   │   └── MDTypography
-    │   ├── context
-    │   ├── examples
-    │   │   ├── Breadcrumbs
-    │   │   ├── Cards
-    │   │   ├── Charts
-    │   │   ├── Configurator
-    │   │   ├── Footer
-    │   │   ├── Items
-    │   │   ├── LayoutContainers
-    │   │   ├── Lists
-    │   │   ├── Navbars
-    │   │   ├── Sidenav
-    │   │   ├── Tables
-    │   │   └── Timeline
-    │   ├── layouts
-    │   │   ├── authentication
-    │   │   ├── billing
-    │   │   ├── dashboard
-    │   │   ├── notifications
-    │   │   ├── profile
-    │   │   ├── rtl
-    │   │   └── tables
-    │   ├── App.js
-    │   ├── operations.js
-    │   └── routes.js
-    ├── .eslintrc.json
-    ├── .prettierrc.json
-    ├── CHANGELOG.md
-    ├── ISSUE_TEMPLATE.md
-    ├── jsconfig.json
-    ├── LICENSE.md
-    ├── package.json
-    └── README.md
+clearance-office-management-system/
+│
+├── README.md
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── ...
+│
+├── src/
+│   ├── components/
+│   │   ├── ClientManagement/
+│   │   │   ├── AddClient.js
+│   │   │   ├── UpdateClient.js
+│   │   │   ├── DeleteClient.js
+│   │   │   ├── ListClients.js
+│   │   │   └── ClientManagement.js
+│   │   │
+│   │   ├── ShippingCompanyManagement/
+│   │   │   ├── AddShippingCompany.js
+│   │   │   ├── UpdateShippingCompany.js
+│   │   │   ├── DeleteShippingCompany.js
+│   │   │   ├── ListShippingCompanies.js
+│   │   │   └── ShippingCompanyManagement.js
+│   │   │
+│   │   ├── FileManagement/
+│   │   │   ├── AddFile.js
+│   │   │   ├── UpdateFile.js
+│   │   │   ├── DeleteFile.js
+│   │   │   ├── ListFiles.js
+│   │   │   └── FileManagement.js
+│   │   │
+│   │   ├── Navbar.js
+│   │   ├── Sidebar.js
+│   │   └── ...
+│   │
+│   ├── context/
+│   │   ├── ClientContext.js
+│   │   ├── ShippingCompanyContext.js
+│   │   ├── FileContext.js
+│   │   └── ...
+│   │
+│   ├── services/
+│   │   ├── clientService.js
+│   │   ├── shippingCompanyService.js
+│   │   ├── fileService.js
+│   │   └── ...
+│   │
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+│
+├── .gitignore
+├── package.json
+└── package-lock.json
 ```
 
-## Browser Support
+## Modules Overview
 
-At present, we officially aim to support the last two versions of the following browsers:
+### Client Management
+Handles all operations related to managing clients, including adding, updating, deleting, and listing clients.
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+- **AddClient.js**: Component to add new clients.
+- **UpdateClient.js**: Component to update existing client details.
+- **DeleteClient.js**: Component to delete clients.
+- **ListClients.js**: Component to list all clients.
+- **ClientManagement.js**: Main component to manage client operations.
 
-## Resources
+### Shipping Company Management
+Manages interactions and data related to various shipping companies, including adding, updating, deleting, and listing shipping companies.
 
-- [Live Preview](https://demos.creative-tim.com/material-dashboard-react/#/dashboard?ref=readme-mdr)
-- [Download Page](https://www.creative-tim.com/product/material-dashboard-react?ref=readme-mdr)
-- Documentation is [here](https://www.creative-tim.com/learning-lab/react/overview/material-dashboard/?ref=readme-mdr)
-- [License Agreement](https://www.creative-tim.com/license?ref=readme-mdr)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-mdr)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/material-dashboard-react/issues)
+- **AddShippingCompany.js**: Component to add new shipping companies.
+- **UpdateShippingCompany.js**: Component to update existing shipping company details.
+- **DeleteShippingCompany.js**: Component to delete shipping companies.
+- **ListShippingCompanies.js**: Component to list all shipping companies.
+- **ShippingCompanyManagement.js**: Main component to manage shipping company operations.
 
-## Reporting Issues
+### File Management
+Handles client files, including adding new files, updating existing files, deleting files, and listing all files for a client.
 
-We use GitHub Issues as the official bug tracker for the Material Dashboard React. Here are some advices for our users that want to report an issue:
+- **AddFile.js**: Component to add new files.
+- **UpdateFile.js**: Component to update existing files.
+- **DeleteFile.js**: Component to delete files.
+- **ListFiles.js**: Component to list all files for a client.
+- **FileManagement.js**: Main component to manage file operations.
 
-1. Make sure that you are using the latest version of the Material Dashboard React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/material-dashboard-react?ref=readme-mdr).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+### Shared Components
+Includes common components like Navbar and Sidebar used throughout the application.
 
-## Technical Support or Questions
+- **Navbar.js**: Component for the top navigation bar.
+- **Sidebar.js**: Component for the side navigation menu.
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-mdr) instead of opening an issue.
+### Context
+Provides context for managing state across the application using React Context API.
 
-## Licensing
+- **ClientContext.js**: Context for managing client state.
+- **ShippingCompanyContext.js**: Context for managing shipping company state.
+- **FileContext.js**: Context for managing file state.
 
-- Copyright 2021 [Creative Tim](https://www.creative-tim.com?ref=readme-mdr)
-- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-mdr)
+### Services
+Handles API calls and business logic for interacting with the backend PHP services.
 
-## Useful Links
+- **clientService.js**: Service for client-related API calls.
+- **shippingCompanyService.js**: Service for shipping company-related API calls.
+- **fileService.js**: Service for file-related API calls.
 
-- [More products](https://www.creative-tim.com/templates?ref=readme-mdr) from Creative Tim
+## How to Use
 
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
+### Prerequisites
+- Node.js installed
+- npm or yarn installed
 
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-mdr) from Creative Tim
+### Installation
 
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-mdr) (earn money)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/clearance-office-management-system.git
+   cd clearance-office-management-system
+   ```
 
-##### Social Media
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Twitter: <https://twitter.com/CreativeTim>
+### Running the Application
 
-Facebook: <https://www.facebook.com/CreativeTim>
+1. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-Dribbble: <https://dribbble.com/creativetim>
+2. Open your browser and navigate to `http://localhost:3000` to see the application running.
 
-Google+: <https://plus.google.com/+CreativetimPage>
+### Building for Production
 
-Instagram: <https://instagram.com/creativetimofficial>
+1. Build the application for production:
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+2. The output will be in the `build` directory, which can be served using any static site hosting service.
+
+### Testing
+
+1. Run the tests:
+   ```bash
+   npm test
+   # or
+   yarn test
+   ```
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+This should provide a clear and comprehensive overview of your React.js project for a `README` file.
