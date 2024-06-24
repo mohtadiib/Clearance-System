@@ -1,7 +1,3 @@
-بالطبع، يمكنني مساعدتك في كتابة ملف `README.md` لمشروع React.js الخاص بك. سنركز على شرح المشروع وكيفية تشغيله وإدارته. إليك الشرح المطلوب:
-
----
-
 # Clearance Office Management System - Frontend
 
 This repository contains the frontend code for the Clearance Office Management System built using React.js. The system includes various modules for managing clients, shipping companies, and client files.
